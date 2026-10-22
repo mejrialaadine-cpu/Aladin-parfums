@@ -94,7 +94,6 @@ const AladinRoyalCrest = ({ size = "md" }) => {
   );
 };
 
-// --- BRIGHT LUXURY STUDIO PEDESTAL (TRUE COLORS VISIBLE) ---
 const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', customImageUrl }) => {
   const [imgError, setImgError] = useState(false);
   const activeImage = customImageUrl || product.imageUrl;
@@ -103,7 +102,6 @@ const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', cus
     size === 'lg' ? 'w-full h-72 sm:h-80 rounded-2xl p-6' : size === 'sm' ? 'w-14 h-16 rounded-xl p-1.5' : 'w-full h-60 rounded-2xl p-5';
   const imgClasses = size === 'lg' ? 'max-h-60 sm:max-h-64' : size === 'sm' ? 'max-h-12' : 'max-h-48';
 
-  // Using a clean, bright, luxurious ivory/white gradient box so bottles show their natural colors vividly
   const pedestalStyle =
     'bg-gradient-to-b from-[#FFFFFF] via-[#FAF7F2] to-[#ECE5D8] border-amber-500/40 shadow-[inset_0_2px_15px_rgba(255,255,255,0.9),0_4px_20px_rgba(0,0,0,0.3)]';
 
@@ -819,7 +817,7 @@ export default function App() {
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => {
-      setToastMessage(null);
+      setToastsMessage(null);
     }, 3400);
   };
 
@@ -987,8 +985,9 @@ export default function App() {
       setFormError("Veuillez saisir votre Nom et Prénom.");
       return;
     }
+    // Updated condition to accept any 8 digits (so any Tunisian phone number works seamlessly)
     if (!/^\d{8}\$/.test(cleanPhone)) {
-      setFormError("Veuillez saisir un numéro de téléphone tunisien valide à 8 chiffres (ex: 94318153).");
+      setFormError("Veuillez saisir un numéro de téléphone valide à 8 chiffres.");
       return;
     }
     if (!checkoutForm.address.trim()) {

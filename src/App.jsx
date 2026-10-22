@@ -46,11 +46,9 @@ import {
   Trash2
 } from 'lucide-react';
 
-// --- CONSTANTS: ALADIN BRANDING & CONTACT ---
 const STORE_PHONE_DISPLAY = "+216 94 318 153";
 const STORE_WHATSAPP_NUMBER = "21694318153";
 
-// --- BESPOKE ROYAL ORIENTAL GOLD EMBLEM CREST FOR "ALADIN PARFUMS DE LUXE" ---
 const AladinRoyalCrest = ({ size = "md" }) => {
   const dimensions =
     size === "lg"
@@ -77,77 +75,17 @@ const AladinRoyalCrest = ({ size = "md" }) => {
               <stop offset="100%" stopColor="#92400E" />
             </linearGradient>
           </defs>
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.6"
-            strokeDasharray="3 2"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="41"
-            stroke="url(#aladinGold)"
-            strokeWidth="1"
-            opacity="0.7"
-          />
-          <path
-            d="M26 66 C26 42, 38 25, 50 16 C62 25, 74 42, 74 66"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.5"
-            fill="rgba(212,175,55,0.06)"
-          />
-          <rect
-            x="53"
-            y="29"
-            width="10"
-            height="4"
-            rx="1"
-            fill="url(#aladinGold)"
-          />
-          <rect
-            x="55"
-            y="33"
-            width="6"
-            height="4"
-            fill="url(#aladinGold)"
-          />
-          <path
-            d="M50 45 C50 39, 66 39, 66 45 L66 56 C66 60, 50 60, 50 56 Z"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.5"
-            fill="rgba(212,175,55,0.15)"
-          />
-          <path
-            d="M20 56 C27 56, 32 64, 46 64 C60 64, 68 56, 79 49 C74 63, 62 71, 46 71 C33 71, 25 65, 20 56 Z"
-            fill="url(#aladinGold)"
-          />
-          <path
-            d="M23 56 C17 52, 18 44, 25 46 C28 47, 28 52, 24 55"
-            stroke="url(#aladinGold)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M40 56 C43 51, 49 51, 52 56"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.8"
-            fill="#070913"
-          />
-          <path
-            d="M38 74 L54 74 M42 71 L50 71"
-            stroke="url(#aladinGold)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M77 47 C82 39, 73 31, 69 24 C66 19, 72 14, 76 16"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
+          <circle cx="50" cy="50" r="45" stroke="url(#aladinGold)" strokeWidth="1.6" strokeDasharray="3 2" />
+          <circle cx="50" cy="50" r="41" stroke="url(#aladinGold)" strokeWidth="1" opacity="0.7" />
+          <path d="M26 66 C26 42, 38 25, 50 16 C62 25, 74 42, 74 66" stroke="url(#aladinGold)" strokeWidth="1.5" fill="rgba(212,175,55,0.06)" />
+          <rect x="53" y="29" width="10" height="4" rx="1" fill="url(#aladinGold)" />
+          <rect x="55" y="33" width="6" height="4" fill="url(#aladinGold)" />
+          <path d="M50 45 C50 39, 66 39, 66 45 L66 56 C66 60, 50 60, 50 56 Z" stroke="url(#aladinGold)" strokeWidth="1.5" fill="rgba(212,175,55,0.15)" />
+          <path d="M20 56 C27 56, 32 64, 46 64 C60 64, 68 56, 79 49 C74 63, 62 71, 46 71 C33 71, 25 65, 20 56 Z" fill="url(#aladinGold)" />
+          <path d="M23 56 C17 52, 18 44, 25 46 C28 47, 28 52, 24 55" stroke="url(#aladinGold)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M40 56 C43 51, 49 51, 52 56" stroke="url(#aladinGold)" strokeWidth="1.8" fill="#070913" />
+          <path d="M38 74 L54 74 M42 71 L50 71" stroke="url(#aladinGold)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M77 47 C82 39, 73 31, 69 24 C66 19, 72 14, 76 16" stroke="url(#aladinGold)" strokeWidth="1.6" strokeLinecap="round" />
           <circle cx="36" cy="36" r="1.6" fill="#FEF08A" />
           <circle cx="50" cy="24" r="1.4" fill="#FEF08A" />
         </svg>
@@ -156,30 +94,13 @@ const AladinRoyalCrest = ({ size = "md" }) => {
   );
 };
 
-// --- LUXURY STUDIO PEDESTAL FOR REAL PERFUME PHOTOGRAPHS ---
-const PerfumePhotoShowcase = ({
-  product,
-  size = 'md',
-  studioTheme = 'ivory',
-  customImageUrl
-}) => {
+const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', customImageUrl }) => {
   const [imgError, setImgError] = useState(false);
   const activeImage = customImageUrl || product.imageUrl;
 
   const containerClasses =
-    size === 'lg'
-      ? 'w-full h-72 sm:h-80 rounded-2xl p-6'
-      : size === 'sm'
-      ? 'w-14 h-16 rounded-xl p-1.5'
-      : 'w-full h-60 rounded-2xl p-5';
-
-  const imgClasses =
-    size === 'lg'
-      ? 'max-h-60 sm:max-h-64'
-      : size === 'sm'
-      ? 'max-h-12'
-      : 'max-h-48';
-
+    size === 'lg' ? 'w-full h-72 sm:h-80 rounded-2xl p-6' : size === 'sm' ? 'w-14 h-16 rounded-xl p-1.5' : 'w-full h-60 rounded-2xl p-5';
+  const imgClasses = size === 'lg' ? 'max-h-60 sm:max-h-64' : size === 'sm' ? 'max-h-12' : 'max-h-48';
   const pedestalStyle =
     studioTheme === 'ivory'
       ? 'bg-gradient-to-b from-white via-[#FCFBF7] to-[#F2ECE1] border-amber-500/30 shadow-[inset_0_0_25px_rgba(212,175,55,0.12)]'
@@ -188,16 +109,11 @@ const PerfumePhotoShowcase = ({
       : 'bg-gradient-to-b from-[#FAF8F5] via-[#F3EDE2] to-[#E6DEC8] border-amber-400/50 shadow-[0_0_30px_rgba(212,175,55,0.15)]';
 
   return (
-    <div
-      className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}
-    >
+    <div className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}>
       <div
         className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-24 rounded-full blur-2xl opacity-40 pointer-events-none transition-opacity duration-500 group-hover:opacity-75"
-        style={{
-          background: `radial-gradient(circle, \${product.accentColor || '#D4AF37'}, transparent 70%)`
-        }}
+        style={{ background: `radial-gradient(circle, \${product.accentColor || '#D4AF37'}, transparent 70%)` }}
       />
-
       {size !== 'sm' && (
         <>
           <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-amber-600/40 pointer-events-none" />
@@ -206,11 +122,9 @@ const PerfumePhotoShowcase = ({
           <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-amber-600/40 pointer-events-none" />
         </>
       )}
-
       {size !== 'sm' && (
         <div className="absolute bottom-3 w-2/3 h-3 rounded-full bg-amber-950/10 blur-md pointer-events-none group-hover:scale-110 transition-transform duration-500" />
       )}
-
       {!imgError && activeImage ? (
         <img
           src={activeImage}
@@ -222,15 +136,10 @@ const PerfumePhotoShowcase = ({
       ) : (
         <div className="flex flex-col items-center justify-center text-center p-2 text-zinc-700">
           <Sparkles className="w-8 h-8 text-amber-600 mb-1" />
-          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-800">
-            {product.brand}
-          </span>
-          <span className="text-xs font-serif font-bold text-zinc-900">
-            {product.name}
-          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-800">{product.brand}</span>
+          <span className="text-xs font-serif font-bold text-zinc-900">{product.name}</span>
         </div>
       )}
-
       {size === 'lg' && (
         <div className="absolute bottom-2.5 right-3 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-950/85 text-amber-300 text-[10px] font-bold tracking-wider uppercase shadow">
           <ShieldCheck className="w-3 h-3 text-amber-400" />
@@ -241,7 +150,6 @@ const PerfumePhotoShowcase = ({
   );
 };
 
-// --- REALISTIC TUNISIAN PERFUME CATALOG DATA WITH OFFICIAL BOTTLE PHOTOS ---
 const PERFUMES_DATA = [
   {
     id: 1,
@@ -263,7 +171,7 @@ const PERFUMES_DATA = [
     accentColor: "#d97706",
     shortLabel: "KHAMRAH",
     inspiration: "Oriental Gourmand Épicé — Le N°1 des ventes en Tunisie",
-    description: "Un élixir oriental somptueux mêlant la chaleur de la cannelle, la douceur des dattes confites et un fond praliné vanillé irrésistible dans un flacon cristal iconique. Tenue extrême de plus de 12 heures.",
+    description: "Un élixir oriental somptueux mêlant la chaleur de la cannelle, la douceur des dattes confites et un fond praliné vanillé irrésistible dans un flacon cristal iconique.",
     topNotes: ["Cannelle", "Noix de Muscade", "Bergamote"],
     heartNotes: ["Dattes", "Praliné", "Tubéreuse", "Mahonial"],
     baseNotes: ["Vanille", "Fève Tonka", "Bois d'Akigala", "Myrrhe", "Benjoin"],
@@ -319,7 +227,7 @@ const PERFUMES_DATA = [
     accentColor: "#d4af37",
     shortLabel: "ASAD",
     inspiration: "Puissance Masculine — Épices Noires, Tabac & Vanille Ambrée",
-    description: "Un parfum masculin puissant et racé dans son flacon noir et or. Le poivre noir rencontre le tabac blond et l'ananas, soutenus par un cœur de café et une vanille sèche boisée.",
+    description: "Un parfum masculin puissant et racé dans son flacon noir et or.",
     topNotes: ["Poivre Noir", "Tabac", "Ananas"],
     heartNotes: ["Patchouli", "Café", "Iris"],
     baseNotes: ["Vanille", "Ambre", "Bois Secs", "Benjoin", "Labdanum"],
@@ -347,7 +255,7 @@ const PERFUMES_DATA = [
     accentColor: "#f472b6",
     shortLabel: "YARA",
     inspiration: "Douceur Lactée, Fruits Tropicaux & Vanille Poudrée",
-    description: "L'icône féminine par excellence en Tunisie. Un nuage velouté d'orchidée, de fruits tropicaux crémeux et de vanille poudrée qui attire tous les compliments.",
+    description: "L'icône féminine par excellence en Tunisie.",
     topNotes: ["Orchidée", "Héliotrope", "Mandarine"],
     heartNotes: ["Accord Gourmand", "Fruits Tropicaux"],
     baseNotes: ["Vanille", "Musc Blanc", "Bois de Santal"],
@@ -375,7 +283,7 @@ const PERFUMES_DATA = [
     accentColor: "#fde047",
     shortLabel: "ANGHAM",
     inspiration: "Symphonie Dorée de Lavande, Praliné & Vanille Cacao",
-    description: "Une harmonie envoûtante où la fraîcheur aromatique de la lavande et du gingembre se fond dans un trio exquis de vanille infusée, de praliné et de cacao.",
+    description: "Une harmonie envoûtante.",
     topNotes: ["Mandarine", "Gingembre", "Poivre Rose"],
     heartNotes: ["Lavande", "Praliné", "Cacao", "Jasmin"],
     baseNotes: ["Vanille", "Ambre", "Musc"],
@@ -403,7 +311,7 @@ const PERFUMES_DATA = [
     accentColor: "#fcd34d",
     shortLabel: "ECLAIRE",
     inspiration: "Caramel Fondant, Lait Chaud, Miel & Vanille Gourmande",
-    description: "La révélation gourmande de Lattafa. Un délice irrésistible de caramel beurre salé, de lait sucré, de miel doré et de praliné vanillé au sillage ultra-complimenté.",
+    description: "La révélation gourmande de Lattafa.",
     topNotes: ["Caramel", "Lait Chaud", "Sucre"],
     heartNotes: ["Miel Doré", "Fleurs Blanches"],
     baseNotes: ["Vanille", "Praliné", "Musc Crémeux"],
@@ -431,7 +339,7 @@ const PERFUMES_DATA = [
     accentColor: "#fef08a",
     shortLabel: "HONOR & GLORY",
     inspiration: "Ananas Crème Brûlée, Curcuma Épicé & Vanille Santal",
-    description: "Dans son flacon blanc et or sculptural, Honor & Glory marie l'exotisme d'un ananas rôti façon crème brûlée à la chaleur de la cannelle, du poivre noir et du bois de santal.",
+    description: "Dans son flacon blanc et or sculptural.",
     topNotes: ["Ananas", "Crème Brûlée"],
     heartNotes: ["Cannelle", "Benjoin", "Curcuma", "Poivre Noir"],
     baseNotes: ["Vanille", "Bois de Santal", "Cashmeran", "Mousse"],
@@ -459,7 +367,7 @@ const PERFUMES_DATA = [
     accentColor: "#ca8a04",
     shortLabel: "9 PM",
     inspiration: "Le Roi des Soirées — Pomme Croquante, Cannelle & Vanille",
-    description: "Le parfum de soirée par excellence. Une ouverture vibrante de pomme rouge, bergamote et cannelle qui fond sur un lit sensuel de vanille ambrée et de fève tonka.",
+    description: "Le parfum de soirée par excellence.",
     topNotes: ["Pomme", "Cannelle", "Lavande sauvage", "Bergamote"],
     heartNotes: ["Fleur d'oranger", "Muguet"],
     baseNotes: ["Vanille", "Fève Tonka", "Ambre", "Patchouli"],
@@ -487,7 +395,7 @@ const PERFUMES_DATA = [
     accentColor: "#94a3b8",
     shortLabel: "SUPREMACY",
     inspiration: "Extrait Impérial — Cassis, Bergamote & Mousse de Chêne",
-    description: "Un Extrait de Parfum à la performance monumentale. Une explosion fruitée-fumée de cassis, pomme et bergamote sur un fond noble de mousse de chêne, ambre gris et safran.",
+    description: "Un Extrait de Parfum à la performance monumentale.",
     topNotes: ["Cassis", "Bergamote", "Pomme"],
     heartNotes: ["Mousse de Chêne", "Patchouli", "Lavande"],
     baseNotes: ["Ambre Gris", "Safran", "Musc"],
@@ -515,7 +423,7 @@ const PERFUMES_DATA = [
     accentColor: "#60a5fa",
     shortLabel: "TURATHI BLUE",
     inspiration: "Pamplemousse Scintillant, Ambre & Bois Précieux",
-    description: "L'élégance méditerranéenne alliée au savoir-faire oriental. Un pamplemousse juteux et vibrant soutenu par des notes ambrées, boisées et musquées d'une grande noblesse.",
+    description: "L'élégance méditerranéenne.",
     topNotes: ["Pamplemousse", "Bergamote", "Mandarine"],
     heartNotes: ["Ambre", "Notes Boisées"],
     baseNotes: ["Musc", "Patchouli", "Épices Fraîches"],
@@ -543,7 +451,7 @@ const PERFUMES_DATA = [
     accentColor: "#fbbf24",
     shortLabel: "SHARAF BLEND",
     inspiration: "Extrait de Parfum — Safran, Dattes & Vanille Liquoreuse",
-    description: "Présenté dans un flacon cristal d'exception signé Zimaya, Sharaf Blend dévoile un accord liquoreux raffiné mêlant safran précieux, muscade, dattes royales et vanille fève tonka.",
+    description: "Présenté dans un flacon cristal d'exception.",
     topNotes: ["Noix de Muscade", "Safran", "Dattes"],
     heartNotes: ["Vanille", "Praliné", "Tubéreuse"],
     baseNotes: ["Fève Tonka", "Bois d'Ambre", "Benjoin", "Musc"],
@@ -571,7 +479,7 @@ const PERFUMES_DATA = [
     accentColor: "#fda4af",
     shortLabel: "FATIMA PINK",
     inspiration: "Bouquet Royal de Rose Turque, Litchi & Rhubarbe",
-    description: "Un Extrait de Parfum floral-fruité sophistiqué présenté dans un écrin rose impérial. L'alliance pétillante de la rhubarbe et du litchi révèle un cœur de rose veloutée et de vanille musquée.",
+    description: "Un Extrait de Parfum floral-fruité sophistiqué.",
     topNotes: ["Litchi", "Rhubarbe", "Bergamote", "Muscade"],
     heartNotes: ["Rose Turque", "Pivoine", "Vanille"],
     baseNotes: ["Cashmeran", "Musc Blanc", "Vétiver", "Encens"],
@@ -599,7 +507,7 @@ const PERFUMES_DATA = [
     accentColor: "#f59e0b",
     shortLabel: "LIQUID BRUN",
     inspiration: "Haute Parfumerie Niche — Vanille Bourbon & Fleur d'Oranger",
-    description: "La sensation mondiale signée French Avenue. Un chef-d'œuvre de vanille Bourbon enveloppée de fleur d'oranger lumineuse, cannelle fine, cardamome et praliné boisé.",
+    description: "La sensation mondiale signée French Avenue.",
     topNotes: ["Cannelle", "Fleur d'oranger", "Cardamome", "Bergamote"],
     heartNotes: ["Vanille Bourbon", "Élémi"],
     baseNotes: ["Praliné", "Ambroxan", "Bois de Gaïac", "Musc"],
@@ -627,7 +535,7 @@ const PERFUMES_DATA = [
     accentColor: "#e4e4e7",
     shortLabel: "SPECTRE GHOST",
     inspiration: "Gingembre Frais, Cardamome & Vanille Noire Boisée",
-    description: "Un flacon avant-gardiste renfermant la plus belle vanille épicée du marché. Le gingembre frais, la bergamote et la cardamome illuminent une vanille boisée profonde et magnétique.",
+    description: "Un flacon avant-gardiste.",
     topNotes: ["Gingembre", "Cardamome", "Bergamote"],
     heartNotes: ["Poivre Rose", "Cassis", "Rose"],
     baseNotes: ["Vanille", "Cèdre", "Patchouli", "Benjoin"],
@@ -655,7 +563,7 @@ const PERFUMES_DATA = [
     accentColor: "#f59e0b",
     shortLabel: "ROYAL BLEND",
     inspiration: "Accord Cognac Boisé, Cannelle, Prune & Fève Tonka",
-    description: "L'excellence de la collection French Avenue dans un flacon cristal ciselé. Un accord liquoreux et chaleureux de prune confite, cannelle épicée, fève tonka et vanille boisée.",
+    description: "L'excellence de la collection French Avenue.",
     topNotes: ["Cannelle", "Prune", "Accord Liquoreux"],
     heartNotes: ["Iris", "Myrrhe"],
     baseNotes: ["Fève Tonka", "Vanille", "Bois de Santal"],
@@ -683,7 +591,7 @@ const PERFUMES_DATA = [
     accentColor: "#71717a",
     shortLabel: "CDNIM",
     inspiration: "La Légende Boisée Citronnée — Compliments Garantis",
-    description: "Le best-seller mondial incontesté. Une attaque vive de citron, bergamote et ananas suivie d'un cœur de bouleau fumé et d'un fond ambre gris ultra masculin.",
+    description: "Le best-seller mondial incontesté.",
     topNotes: ["Citron", "Ananas", "Bergamote", "Cassis", "Pomme"],
     heartNotes: ["Bouleau", "Jasmin", "Rose"],
     baseNotes: ["Musc", "Ambre Gris", "Patchouli", "Vanille"],
@@ -711,7 +619,7 @@ const PERFUMES_DATA = [
     accentColor: "#d97706",
     shortLabel: "KISMET MAGIC",
     inspiration: "Nectar Liquoreux de Fève Tonka, Cannelle & Vanille",
-    description: "Un parfum chaleureux et envoûtant aux accents de miel épicé, de fève tonka grillée, de praliné noisette et de vanille ambrée. Idéal pour les soirées fraîches.",
+    description: "Un parfum chaleureux et envoûtant.",
     topNotes: ["Cannelle", "Bois de Chêne"],
     heartNotes: ["Fève Tonka", "Praliné", "Noisette"],
     baseNotes: ["Vanille", "Bois de Santal", "Miel Ambré"],
@@ -743,7 +651,7 @@ const HERO_SLIDES = [
     id: 1,
     badge: "BOUTIQUE OFFICIELLE ALADIN • 100% AUTHENTIQUE IMPORTÉ DE DUBAÏ",
     title: "ALADIN — L'Élixir d'Orient & Parfums de Luxe en Tunisie",
-    subtitle: "Découvrez les véritables flacons de Lattafa, French Avenue, Afnan, Zimaya et Armaf sélectionnés par Aladin. Garantie d'origine avec paiement à la livraison sur les 24 gouvernorats.",
+    subtitle: "Découvrez les véritables flacons de Lattafa, French Avenue, Afnan, Zimaya et Armaf sélectionnés par Aladin.",
     ctaPrimary: "Découvrir les Best-Sellers",
     featuredProductId: 1,
     highlightBrand: "Lattafa Khamrah & Qahwa",
@@ -753,7 +661,7 @@ const HERO_SLIDES = [
     id: 2,
     badge: "EXCLUSIVITÉ ALADIN PARFUMS • FRENCH AVENUE",
     title: "Liquid Brun, Spectre Ghost & Royal Blend",
-    subtitle: "Les créations les plus recherchées de French Avenue enfin disponibles chez Aladin Parfums. Tenue extrême et sillage royal livrés chez vous en 24h/48h.",
+    subtitle: "Les créations les plus recherchées de French Avenue enfin disponibles chez Aladin Parfums.",
     ctaPrimary: "Explorer French Avenue",
     featuredProductId: 13,
     highlightBrand: "French Avenue Paris",
@@ -763,7 +671,7 @@ const HERO_SLIDES = [
     id: 3,
     badge: "SÉLECTION AFNAN & ZIMAYA • EXTRAITS DE PARFUM",
     title: "9PM, Supremacy & Sharaf Blend : L'Élégance Absolue",
-    subtitle: "Des concentrations en Extrait de Parfum pour une signature olfactive inoubliable du matin jusqu'au bout de la nuit.",
+    subtitle: "Des concentrations en Extrait de Parfum pour une signature olfactive inoubliable.",
     ctaPrimary: "Voir les Promotions",
     featuredProductId: 8,
     highlightBrand: "Afnan & Zimaya",
@@ -774,7 +682,7 @@ const HERO_SLIDES = [
 const FAQ_ITEMS = [
   {
     q: "Vos parfums chez Aladin Parfums sont-ils 100% originaux ?",
-    a: "Absolument. Tous nos parfums (Lattafa, Afnan, Zimaya, French Avenue, Armaf, Maison Alhambra) sont importés directement des Émirats Arabes Unis avec leur hologramme d'authenticité officiel et sous blister scellé. Vous avez le droit de vérifier votre colis à la livraison."
+    a: "Absolument. Tous nos parfums sont importés directement des Émirats Arabes Unis avec leur hologramme d'authenticité officiel et sous blister scellé."
   },
   {
     q: "Quels sont les délais et tarifs de livraison en Tunisie ?",
@@ -782,22 +690,13 @@ const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne la confirmation de commande ?",
-    a: "Dès validation de votre commande, Aladin reçoit instantanément votre bon de commande par notification automatique et WhatsApp (+216 94 318 153). Le paiement s'effectue en espèces à la livraison (Cash on Delivery)."
-  },
-  {
-    q: "Proposez-vous la vente en gros pour les boutiques et revendeurs ?",
-    a: "Oui ! Nous disposons d'un tarif préférentiel pour les commandes en gros (à partir de 12 pièces). Cliquez sur 'Commande en Gros' en haut de page ou contactez Aladin directement sur le +216 94 318 153."
+    a: "Dès validation de votre commande, Aladin reçoit instantanément votre bon de commande sur WhatsApp (+216 94 318 153). Le paiement s'effectue en espèces à la livraison."
   }
 ];
 
 const buildFormattedOrderReceipt = (order) => {
   const itemsLines = order.items
-    .map(
-      (i) =>
-        `• \${i.quantity}x *${i.product.brand}${i.product.name}* (${i.product.volume}) —${
-          i.product.price * i.quantity
-        } DT`
-    )
+    .map((i) => `• \${i.quantity}x *${i.product.brand}${i.product.name}* (${i.product.volume}) —${i.product.price * i.quantity} DT`)
     .join("\n");
 
   return [
@@ -818,15 +717,11 @@ const buildFormattedOrderReceipt = (order) => {
     ``,
     `💰 *RÉCAPITULATIF :*`,
     `• Sous-total : ${order.subtotal.toFixed(3)} DT`,
-    `• Livraison : ${
-      order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`
-    }`,
+    `• Livraison : ${order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`}`,
     `• *TOTAL À PAYER (Cash à la livraison) : ${order.total.toFixed(3)} DT*`,
     `━━━━━━━━━━━━━━━━━━━━`,
     `Merci de confirmer ma commande Aladin Parfums !`
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ].filter(Boolean).join("\n");
 };
 
 export default function App() {
@@ -980,9 +875,7 @@ export default function App() {
       const existing = prev.find((item) => item.product.id === product.id);
       if (existing) {
         return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: Math.min(item.quantity + qty, 10) }
-            : item
+          item.product.id === product.id ? { ...item, quantity: Math.min(item.quantity + qty, 10) } : item
         );
       }
       return [...prev, { product, quantity: qty }];
@@ -992,13 +885,7 @@ export default function App() {
 
   const updateCartQty = (productId, delta) => {
     setCart((prev) =>
-      prev
-        .map((item) =>
-          item.product.id === productId
-            ? { ...item, quantity: item.quantity + delta }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
+      prev.map((item) => (item.product.id === productId ? { ...item, quantity: item.quantity + delta } : item)).filter((item) => item.quantity > 0)
     );
   };
 
@@ -1007,14 +894,10 @@ export default function App() {
     setWishlist((prev) => {
       const exists = prev.includes(productId);
       if (exists) {
-        if (targetProduct) {
-          showToast(`${targetProduct.name} retiré de vos favoris.`);
-        }
+        if (targetProduct) showToast(`${targetProduct.name} retiré de vos favoris.`);
         return prev.filter((id) => id !== productId);
       } else {
-        if (targetProduct) {
-          showToast(`${targetProduct.brand} ${targetProduct.name} ajouté aux favoris ♥`);
-        }
+        if (targetProduct) showToast(`${targetProduct.brand} ${targetProduct.name} ajouté aux favoris ♥`);
         return [...prev, productId];
       }
     });
@@ -1057,9 +940,7 @@ export default function App() {
 
       if (notificationConfig.adminEmail.trim()) {
         try {
-          const emailEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(
-            notificationConfig.adminEmail.trim()
-          )}`;
+          const emailEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(notificationConfig.adminEmail.trim())}`;
           const res = await fetch(emailEndpoint, {
             method: "POST",
             headers: {
@@ -1143,10 +1024,7 @@ export default function App() {
     };
 
     const receiptText = buildFormattedOrderReceipt(newOrder);
-    const whatsappTarget = (notificationConfig.whatsappNumber || STORE_WHATSAPP_NUMBER).replace(
-      /\D/g,
-      ""
-    );
+    const whatsappTarget = (notificationConfig.whatsappNumber || STORE_WHATSAPP_NUMBER).replace(/\D/g, "");
     const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(receiptText)}`;
 
     const bgChannels = await triggerBackgroundNotifications(newOrder);
@@ -1196,9 +1074,7 @@ export default function App() {
     if (sent.length > 0) {
       setTestAlertStatus(`✅ Alerte envoyée avec succès via : ${sent.join(", ")} !`);
     } else {
-      setTestAlertStatus(
-        "⚠️ Veuillez d'abord activer et remplir vos identifiants (Email ou Telegram) ci-dessous."
-      );
+      setTestAlertStatus("⚠️ Veuillez d'abord activer et remplir vos identifiants (Email ou Telegram) ci-dessous.");
     }
   };
 
@@ -1253,28 +1129,21 @@ export default function App() {
       )}
 
       <a
-        href={`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(
-          "Bonjour Aladin Parfums ! Je souhaite avoir un conseil sur vos parfums."
-        )}`}
+        href={`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour Aladin Parfums ! Je souhaite avoir un conseil sur vos parfums.")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 left-5 z-40 flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-full shadow-2xl border border-emerald-400/40 transition group"
         title="Contacter Aladin sur WhatsApp"
       >
         <MessageCircle className="w-5 h-5 fill-white/20" />
-        <span className="text-xs font-bold hidden sm:inline">
-          WhatsApp Aladin • {STORE_PHONE_DISPLAY}
-        </span>
+        <span className="text-xs font-bold hidden sm:inline">WhatsApp Aladin • {STORE_PHONE_DISPLAY}</span>
       </a>
 
       <div className="bg-gradient-to-r from-amber-950/90 via-zinc-900 to-amber-950/90 border-b border-amber-500/20 text-xs sm:text-sm py-2.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-amber-200/95 font-medium mx-auto sm:mx-0">
             <Truck className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>
-              Livraison rapide partout en Tunisie (24h–48h) •{" "}
-              <strong className="text-amber-300">Frais fixes : 8 DT</strong> (Gratuite dès 250 DT)
-            </span>
+            <span>Livraison rapide partout en Tunisie (24h–48h) • <strong className="text-amber-300">Frais fixes : 8 DT</strong> (Gratuite dès 250 DT)</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-zinc-300 text-xs">
             <span className="flex items-center gap-1.5 text-emerald-300 font-medium">
@@ -1282,18 +1151,12 @@ export default function App() {
               Parfums 100% Originaux Scellés
             </span>
             <span className="text-zinc-600">|</span>
-            <button
-              onClick={() => setIsWholesaleModalOpen(true)}
-              className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 transition underline-offset-4 hover:underline"
-            >
+            <button onClick={() => setIsWholesaleModalOpen(true)} className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 transition underline-offset-4 hover:underline">
               <Building2 className="w-3.5 h-3.5" />
               Commande en Gros
             </button>
             <span className="text-zinc-600">|</span>
-            <a
-              href={`tel:${STORE_WHATSAPP_NUMBER}`}
-              className="flex items-center gap-1.5 hover:text-amber-300 transition"
-            >
+            <a href={`tel:${STORE_WHATSAPP_NUMBER}`} className="flex items-center gap-1.5 hover:text-amber-300 transition">
               <Phone className="w-3.5 h-3.5 text-amber-400" />
               Service Client : <strong className="text-white">{STORE_PHONE_DISPLAY}</strong>
             </a>
@@ -1349,10 +1212,7 @@ export default function App() {
                   className="w-full bg-zinc-900/90 border border-zinc-800 focus:border-amber-500/70 rounded-full pl-10 pr-9 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none transition"
                 />
                 {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
-                  >
+                  <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white">
                     <X className="w-4 h-4" />
                   </button>
                 )}
@@ -1365,11 +1225,7 @@ export default function App() {
                 className="relative p-2.5 rounded-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 text-zinc-300 hover:text-amber-400 transition"
                 title="Mes Favoris"
               >
-                <Heart
-                  className={`w-5 h-5 transition ${
-                    wishlist.length > 0 ? "text-rose-400 fill-rose-400" : ""
-                  }`}
-                />
+                <Heart className={`w-5 h-5 transition ${wishlist.length > 0 ? "text-rose-400 fill-rose-400" : ""}`} />
                 {wishlist.length > 0 && (
                   <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-[10px] font-bold flex items-center justify-center text-white shadow">
                     {wishlist.length}
@@ -1421,8 +1277,7 @@ export default function App() {
                 { label: "En Promotion", cat: "En Promotion", gender: "Tous", icon: Percent, highlight: true }
               ].map((nav, idx) => {
                 const IconComponent = nav.icon;
-                const isActive =
-                  selectedCategory === nav.cat && selectedGender === nav.gender && nav.label !== "Accueil";
+                const isActive = selectedCategory === nav.cat && selectedGender === nav.gender && nav.label !== "Accueil";
                 return (
                   <button
                     key={idx}
@@ -1432,11 +1287,7 @@ export default function App() {
                       scrollToCatalog();
                     }}
                     className={`flex items-center gap-1.5 font-medium transition ${
-                      nav.highlight
-                        ? "text-rose-400 hover:text-rose-300"
-                        : isActive
-                        ? "text-amber-400"
-                        : "text-zinc-300 hover:text-amber-400"
+                      nav.highlight ? "text-rose-400 hover:text-rose-300" : isActive ? "text-amber-400" : "text-zinc-300 hover:text-amber-400"
                     }`}
                   >
                     {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
@@ -1445,7 +1296,6 @@ export default function App() {
                 );
               })}
             </div>
-
             <div className="flex items-center gap-2 text-xs text-amber-400/90 font-medium">
               <ShieldCheck className="w-4 h-4" />
               <span>Boutique Officielle Aladin • Importé des Émirats</span>
@@ -1465,9 +1315,7 @@ export default function App() {
                     scrollToCatalog();
                   }}
                   className={`px-3 py-2 rounded-lg text-xs font-semibold text-left border ${
-                    selectedCategory === cat
-                      ? "bg-amber-500/20 border-amber-500 text-amber-300"
-                      : "bg-zinc-900 border-zinc-800 text-zinc-300"
+                    selectedCategory === cat ? "bg-amber-500/20 border-amber-500 text-amber-300" : "bg-zinc-900 border-zinc-800 text-zinc-300"
                   }`}
                 >
                   {cat === "Tous" ? "Tout le Catalogue" : cat}
@@ -1503,14 +1351,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-16 relative z-10">
           {HERO_SLIDES.map((slide, index) => {
             if (index !== currentHeroSlide) return null;
-            const featuredPerfume =
-              PERFUMES_DATA.find((p) => p.id === slide.featuredProductId) || PERFUMES_DATA[0];
+            const featuredPerfume = PERFUMES_DATA.find((p) => p.id === slide.featuredProductId) || PERFUMES_DATA[0];
 
             return (
-              <div
-                key={slide.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-              >
+              <div key={slide.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wider uppercase">
                     <Sparkles className="w-3.5 h-3.5" />
@@ -1518,3 +1362,295 @@ export default function App() {
                   </div>
 
                   <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white leading-[1.15]">
+                    {slide.title}
+                  </h1>
+
+                  <p className="text-zinc-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    {slide.subtitle}
+                  </p>
+
+                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
+                    <button
+                      onClick={scrollToCatalog}
+                      className="px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-sm hover:brightness-110 transition shadow-xl shadow-amber-500/20 flex items-center gap-2"
+                    >
+                      {slide.ctaPrimary}
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setQuickViewProduct(featuredPerfume);
+                        setQuickViewQty(1);
+                      }}
+                      className="px-6 py-3.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 border border-amber-500/40 text-amber-200 font-semibold text-sm transition"
+                    >
+                      Découvrir {featuredPerfume.name} ({featuredPerfume.price} DT)
+                    </button>
+                  </div>
+
+                  <div className="pt-4 grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 border-t border-zinc-800/80 text-left">
+                    <div>
+                      <span className="block text-amber-400 font-bold text-sm sm:text-base">100% Original</span>
+                      <span className="text-[11px] text-zinc-400">Importé de Dubaï (EAU)</span>
+                    </div>
+                    <div>
+                      <span className="block text-amber-400 font-bold text-sm sm:text-base">Livraison 24/48h</span>
+                      <span className="text-[11px] text-zinc-400">Partout en Tunisie (8 DT)</span>
+                    </div>
+                    <div>
+                      <span className="block text-amber-400 font-bold text-sm sm:text-base">Confirmation Directe</span>
+                      <span className="text-[11px] text-zinc-400">WhatsApp & Notification</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <div className="relative mx-auto max-w-sm bg-gradient-to-b from-zinc-900/90 to-zinc-950 border border-amber-500/30 rounded-3xl p-6 shadow-2xl">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold">
+                        ★ SÉLECTION ALADIN
+                      </span>
+                      <span className="text-xs text-zinc-400 font-medium">
+                        {featuredPerfume.volume} • {featuredPerfume.concentration}
+                      </span>
+                    </div>
+
+                    <div
+                      onClick={() => {
+                        setQuickViewProduct(featuredPerfume);
+                        setQuickViewQty(1);
+                      }}
+                      className="cursor-pointer py-2 group"
+                    >
+                      <PerfumePhotoShowcase
+                        product={featuredPerfume}
+                        size="lg"
+                        studioTheme={studioTheme}
+                        customImageUrl={customImages[featuredPerfume.id]}
+                      />
+                    </div>
+
+                    <div className="text-center mt-3 space-y-2">
+                      <div className="text-xs uppercase tracking-widest text-amber-400 font-semibold">{featuredPerfume.brand}</div>
+                      <h3 className="text-xl font-serif font-bold text-white">{featuredPerfume.name}</h3>
+                      <p className="text-xs text-zinc-400 line-clamp-2">{featuredPerfume.inspiration}</p>
+
+                      <div className="pt-3 flex items-center justify-between border-t border-zinc-800/80">
+                        <div className="text-left">
+                          {featuredPerfume.oldPrice && (
+                            <span className="text-xs text-zinc-500 line-through mr-2">{featuredPerfume.oldPrice} DT</span>
+                          )}
+                          <span className="text-2xl font-bold text-amber-400">{featuredPerfume.price} DT</span>
+                        </div>
+                        <button
+                          onClick={() => addToCart(featuredPerfume, 1)}
+                          className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs transition flex items-center gap-1.5"
+                        >
+                          <ShoppingBag className="w-4 h-4" />
+                          Ajouter au panier
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {HERO_SLIDES.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentHeroSlide(idx)}
+                className={`h-2 rounded-full transition-all ${currentHeroSlide === idx ? "w-8 bg-amber-400" : "w-2 bg-zinc-700 hover:bg-zinc-500"}`}
+                aria-label={`Slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-8 bg-zinc-950/60 border-b border-zinc-800/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h2 className="text-sm uppercase tracking-[0.2em] text-amber-400 font-semibold">Nos Maisons de Parfumerie</h2>
+              <p className="text-xs text-zinc-400">Cliquez sur une marque pour filtrer les parfums disponibles chez Aladin Parfums</p>
+            </div>
+            {selectedBrand !== "Toutes" && (
+              <button onClick={() => setSelectedBrand("Toutes")} className="text-xs text-amber-400 hover:underline flex items-center gap-1">
+                Afficher toutes les marques <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+            {BRANDS.map((b) => {
+              const isSelected = selectedBrand === b.name;
+              return (
+                <button
+                  key={b.name}
+                  onClick={() => {
+                    setSelectedBrand(b.name);
+                    scrollToCatalog();
+                  }}
+                  className={`p-3.5 rounded-2xl border text-left transition-all flex flex-col justify-between ${
+                    isSelected ? "bg-gradient-to-br from-amber-500/20 to-amber-900/20 border-amber-400 shadow-lg shadow-amber-500/10" : "bg-zinc-900/70 border-zinc-800/90 hover:border-zinc-700"
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full mb-1">
+                    <span className={`font-serif font-bold text-sm ${isSelected ? "text-amber-300" : "text-white"}`}>{b.name}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-800 text-zinc-400">{b.count}</span>
+                  </div>
+                  <span className="text-[11px] text-zinc-400 truncate w-full">{b.tagline}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="catalog-section" className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-4 sm:p-5 mb-8 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-zinc-400 mr-2 flex items-center gap-1">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-400" /> Genre :
+              </span>
+              {["Tous", "Homme", "Femme", "Unisexe"].map((g) => (
+                <button
+                  key={g}
+                  onClick={() => setSelectedGender(g)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${selectedGender === g ? "bg-amber-500 text-zinc-950 shadow" : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"}`}
+                >
+                  {g}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-zinc-400 mr-1">Notes Olfactives :</span>
+              {["Toutes", "Vanille", "Gourmand", "Boisé", "Café", "Fruité", "Épicé"].map((note) => (
+                <button
+                  key={note}
+                  onClick={() => setSelectedNoteFilter(note)}
+                  className={`px-3 py-1 rounded-full text-xs transition border ${
+                    selectedNoteFilter === note ? "bg-amber-500/20 border-amber-400 text-amber-300 font-semibold" : "bg-zinc-950/70 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  {note}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 ml-auto">
+              <label className="text-xs text-zinc-400">Trier par :</label>
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-amber-500"
+              >
+                <option value="popular">Plus Populaires</option>
+                <option value="price-asc">Prix : Croissant</option>
+                <option value="price-desc">Prix : Décroissant</option>
+                <option value="rating">Meilleures Notes</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-zinc-800/80 text-xs text-zinc-400">
+            <div>
+              Affichage de <strong className="text-white">{filteredProducts.length}</strong> parfum(s) chez <strong className="text-amber-400">Aladin Parfums</strong>
+              {selectedBrand !== "Toutes" && <span> • Marque : <strong className="text-amber-400">{selectedBrand}</strong></span>}
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] text-zinc-400 hidden sm:inline">Éclairage Studio :</span>
+              {[
+                { id: "ivory", label: "Ivoire Chaud" },
+                { id: "gold", label: "Or Impérial" },
+                { id: "pure", label: "Blanc Pur" }
+              ].map((mode) => (
+                <button
+                  key={mode.id}
+                  onClick={() => setStudioTheme(mode.id)}
+                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
+                    studioTheme === mode.id ? "bg-amber-500/20 border-amber-400 text-amber-300" : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white"
+                  }`}
+                >
+                  {mode.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-16 bg-zinc-900/40 rounded-3xl border border-zinc-800 p-8">
+            <Sparkles className="w-10 h-10 text-amber-400 mx-auto mb-3 opacity-80" />
+            <h3 className="text-lg font-serif font-bold text-white mb-1">Aucun parfum ne correspond à votre recherche</h3>
+            <p className="text-sm text-zinc-400 mb-5">Essayez de modifier vos filtres ou recherchez une autre note (ex: Vanille, Ambre, Lattafa).</p>
+            <button
+              onClick={() => {
+                setSelectedBrand("Toutes");
+                setSelectedGender("Tous");
+                setSelectedCategory("Tous");
+                setSelectedNoteFilter("Toutes");
+                setSearchQuery("");
+              }}
+              className="px-5 py-2.5 rounded-full bg-amber-500 text-zinc-950 font-bold text-xs"
+            >
+              Voir toute la collection
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredProducts.map((product) => {
+              const isWishlisted = wishlist.includes(product.id);
+              const discountPercent = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : null;
+
+              return (
+                <div
+                  key={product.id}
+                  className="group bg-gradient-to-b from-zinc-900/90 to-zinc-950 border border-zinc-800/90 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/5 relative"
+                >
+                  <div className="flex items-start justify-between gap-2 z-10 mb-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {product.isBestSeller && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold uppercase tracking-wider">
+                          ★ Best-Seller
+                        </span>
+                      )}
+                      {product.isNew && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
+                          Nouveau
+                        </span>
+                      )}
+                      {discountPercent && (
+                        <span className="px-2.5 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-[10px] font-bold">
+                          -{discountPercent}%
+                        </span>
+                      )}
+                    </div>
+
+                    <button
+                      onClick={() => toggleWishlist(product.id)}
+                      className={`p-2 rounded-full border transition shrink-0 ${
+                        isWishlisted ? "bg-rose-500/20 border-rose-500/50 text-rose-400" : "bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-white"
+                      }`}
+                      title="Ajouter aux favoris"
+                    >
+                      <Heart className={`w-4 h-4 ${isWishlisted ? "fill-rose-400" : ""}`} />
+                    </button>
+                  </div>
+
+                  <div
+                    onClick={() => {
+                      setQuickViewProduct(product);
+                      setQuickViewQty(1);
+                    }}
+                    className="cursor-pointer mb-3 relative"
+                  >
+                    <PerfumePhotoShowcase product={product} size="md" studioTheme={studioTheme} customImageUrl={customImages[product.id]} />
+                    <div className="absolute bottom-2.5 left-1/2

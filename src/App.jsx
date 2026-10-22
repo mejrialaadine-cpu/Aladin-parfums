@@ -690,32 +690,38 @@ const FAQ_ITEMS = [
 
 const buildFormattedOrderReceipt = (order) => {
   const itemsLines = order.items
-    .map((i) => `• \${i.quantity}x *${i.product.brand}${i.product.name}* (${i.product.volume}) —${i.product.price * i.quantity} DT`)
+    .map(
+      (i) =>
+        `• ${i.quantity}x *${i.product.brand} ${i.product.name}* (${i.product.volume}) — ${
+          i.product.price * i.quantity
+        } DT`
+    )
     .join("\n");
 
-  return [
-    `🧞‍♂️ *NOUVELLE COMMANDE — ALADIN PARFUMS*`,
-    `━━━━━━━━━━━━━━━━━━━━`,
-    `🔖 *Réf :* \${order.ref}`,
-    `📅 *Date :* \${order.date}`,
-    ``,
-    `👤 *CLIENT :*`,
-    `• Nom : \${order.customer.fullName}`,
-    `• Tél : \${order.customer.phone}`,
-    `• Gouvernorat : \${order.customer.governorate}`,
-    `• Adresse : \${order.customer.address}`,
-    order.customer.notes ? `• Note : \${order.customer.notes}` : null,
-    ``,
-    `🛍️ *ARTICLES COMMANDÉS :*`,
-    itemsLines,
-    ``,
-    `💰 *RÉCAPITULATIF :*`,
-    `• Sous-total : ${order.subtotal.toFixed(3)} DT`,
-    `• Livraison : ${order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`}`,
-    `• *TOTAL À PAYER (Cash à la livraison) : ${order.total.toFixed(3)} DT*`,
-    `━━━━━━━━━━━━━━━━━━━━`,
-    `Merci de confirmer ma commande Aladin Parfums !`
-  ].filter(Boolean).join("\n");
+  return `🧞‍♂️ *NOUVELLE COMMANDE — ALADIN PARFUMS*
+━━━━━━━━━━━━━━━━━━━━
+🔖 *Réf :* ${order.ref}
+📅 *Date :* ${order.date}
+
+👤 *CLIENT :*
+• Nom : ${order.customer.fullName}
+• Tél : ${order.customer.phone}
+• Gouvernorat : ${order.customer.governorate}
+• Adresse : ${order.customer.address}${
+    order.customer.notes ? `\n• Note : \${order.customer.notes}` : ""
+  }
+
+🛍️ *ARTICLES COMMANDÉS :*
+${itemsLines}
+
+💰 *RÉCAPITULATIF :*
+• Sous-total : ${order.subtotal.toFixed(3)} DT
+• Livraison : ${
+    order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`
+  }
+• *TOTAL À PAYER (Cash à la livraison) : ${order.total.toFixed(3)} DT*
+━━━━━━━━━━━━━━━━━━━━
+Merci de confirmer ma commande Aladin Parfums !`;
 };
 
 export default function App() {

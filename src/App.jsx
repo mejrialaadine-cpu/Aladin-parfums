@@ -46,11 +46,9 @@ import {
   Trash2
 } from 'lucide-react';
 
-// --- CONSTANTS: ALADIN BRANDING & CONTACT ---
 const STORE_PHONE_DISPLAY = "+216 94 318 153";
 const STORE_WHATSAPP_NUMBER = "21694318153";
 
-// --- BESPOKE ROYAL ORIENTAL GOLD EMBLEM CREST FOR "ALADIN PARFUMS DE LUXE" ---
 const AladinRoyalCrest = ({ size = "md" }) => {
   const dimensions =
     size === "lg"
@@ -77,77 +75,17 @@ const AladinRoyalCrest = ({ size = "md" }) => {
               <stop offset="100%" stopColor="#92400E" />
             </linearGradient>
           </defs>
-          <circle
-            cx="50"
-            cy="50"
-            r="45"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.6"
-            strokeDasharray="3 2"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="41"
-            stroke="url(#aladinGold)"
-            strokeWidth="1"
-            opacity="0.7"
-          />
-          <path
-            d="M26 66 C26 42, 38 25, 50 16 C62 25, 74 42, 74 66"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.5"
-            fill="rgba(212,175,55,0.06)"
-          />
-          <rect
-            x="53"
-            y="29"
-            width="10"
-            height="4"
-            rx="1"
-            fill="url(#aladinGold)"
-          />
-          <rect
-            x="55"
-            y="33"
-            width="6"
-            height="4"
-            fill="url(#aladinGold)"
-          />
-          <path
-            d="M50 45 C50 39, 66 39, 66 45 L66 56 C66 60, 50 60, 50 56 Z"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.5"
-            fill="rgba(212,175,55,0.15)"
-          />
-          <path
-            d="M20 56 C27 56, 32 64, 46 64 C60 64, 68 56, 79 49 C74 63, 62 71, 46 71 C33 71, 25 65, 20 56 Z"
-            fill="url(#aladinGold)"
-          />
-          <path
-            d="M23 56 C17 52, 18 44, 25 46 C28 47, 28 52, 24 55"
-            stroke="url(#aladinGold)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M40 56 C43 51, 49 51, 52 56"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.8"
-            fill="#070913"
-          />
-          <path
-            d="M38 74 L54 74 M42 71 L50 71"
-            stroke="url(#aladinGold)"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M77 47 C82 39, 73 31, 69 24 C66 19, 72 14, 76 16"
-            stroke="url(#aladinGold)"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
+          <circle cx="50" cy="50" r="45" stroke="url(#aladinGold)" strokeWidth="1.6" strokeDasharray="3 2" />
+          <circle cx="50" cy="50" r="41" stroke="url(#aladinGold)" strokeWidth="1" opacity="0.7" />
+          <path d="M26 66 C26 42, 38 25, 50 16 C62 25, 74 42, 74 66" stroke="url(#aladinGold)" strokeWidth="1.5" fill="rgba(212,175,55,0.06)" />
+          <rect x="53" y="29" width="10" height="4" rx="1" fill="url(#aladinGold)" />
+          <rect x="55" y="33" width="6" height="4" fill="url(#aladinGold)" />
+          <path d="M50 45 C50 39, 66 39, 66 45 L66 56 C66 60, 50 60, 50 56 Z" stroke="url(#aladinGold)" strokeWidth="1.5" fill="rgba(212,175,55,0.15)" />
+          <path d="M20 56 C27 56, 32 64, 46 64 C60 64, 68 56, 79 49 C74 63, 62 71, 46 71 C33 71, 25 65, 20 56 Z" fill="url(#aladinGold)" />
+          <path d="M23 56 C17 52, 18 44, 25 46 C28 47, 28 52, 24 55" stroke="url(#aladinGold)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M40 56 C43 51, 49 51, 52 56" stroke="url(#aladinGold)" strokeWidth="1.8" fill="#070913" />
+          <path d="M38 74 L54 74 M42 71 L50 71" stroke="url(#aladinGold)" strokeWidth="2" strokeLinecap="round" />
+          <path d="M77 47 C82 39, 73 31, 69 24 C66 19, 72 14, 76 16" stroke="url(#aladinGold)" strokeWidth="1.6" strokeLinecap="round" />
           <circle cx="36" cy="36" r="1.6" fill="#FEF08A" />
           <circle cx="50" cy="24" r="1.4" fill="#FEF08A" />
         </svg>
@@ -156,30 +94,13 @@ const AladinRoyalCrest = ({ size = "md" }) => {
   );
 };
 
-// --- LUXURY STUDIO PEDESTAL FOR REAL PERFUME PHOTOGRAPHS ---
-const PerfumePhotoShowcase = ({
-  product,
-  size = 'md',
-  studioTheme = 'ivory',
-  customImageUrl
-}) => {
+const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', customImageUrl }) => {
   const [imgError, setImgError] = useState(false);
   const activeImage = customImageUrl || product.imageUrl;
 
   const containerClasses =
-    size === 'lg'
-      ? 'w-full h-72 sm:h-80 rounded-2xl p-6'
-      : size === 'sm'
-      ? 'w-14 h-16 rounded-xl p-1.5'
-      : 'w-full h-60 rounded-2xl p-5';
-
-  const imgClasses =
-    size === 'lg'
-      ? 'max-h-60 sm:max-h-64'
-      : size === 'sm'
-      ? 'max-h-12'
-      : 'max-h-48';
-
+    size === 'lg' ? 'w-full h-72 sm:h-80 rounded-2xl p-6' : size === 'sm' ? 'w-14 h-16 rounded-xl p-1.5' : 'w-full h-60 rounded-2xl p-5';
+  const imgClasses = size === 'lg' ? 'max-h-60 sm:max-h-64' : size === 'sm' ? 'max-h-12' : 'max-h-48';
   const pedestalStyle =
     studioTheme === 'ivory'
       ? 'bg-gradient-to-b from-white via-[#FCFBF7] to-[#F2ECE1] border-amber-500/30 shadow-[inset_0_0_25px_rgba(212,175,55,0.12)]'
@@ -188,16 +109,11 @@ const PerfumePhotoShowcase = ({
       : 'bg-gradient-to-b from-[#FAF8F5] via-[#F3EDE2] to-[#E6DEC8] border-amber-400/50 shadow-[0_0_30px_rgba(212,175,55,0.15)]';
 
   return (
-    <div
-      className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}
-    >
+    <div className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}>
       <div
         className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-24 rounded-full blur-2xl opacity-40 pointer-events-none transition-opacity duration-500 group-hover:opacity-75"
-        style={{
-          background: `radial-gradient(circle, \${product.accentColor || '#D4AF37'}, transparent 70%)`
-        }}
+        style={{ background: `radial-gradient(circle, \${product.accentColor || '#D4AF37'}, transparent 70%)` }}
       />
-
       {size !== 'sm' && (
         <>
           <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-amber-600/40 pointer-events-none" />
@@ -206,11 +122,9 @@ const PerfumePhotoShowcase = ({
           <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-amber-600/40 pointer-events-none" />
         </>
       )}
-
       {size !== 'sm' && (
         <div className="absolute bottom-3 w-2/3 h-3 rounded-full bg-amber-950/10 blur-md pointer-events-none group-hover:scale-110 transition-transform duration-500" />
       )}
-
       {!imgError && activeImage ? (
         <img
           src={activeImage}
@@ -222,15 +136,10 @@ const PerfumePhotoShowcase = ({
       ) : (
         <div className="flex flex-col items-center justify-center text-center p-2 text-zinc-700">
           <Sparkles className="w-8 h-8 text-amber-600 mb-1" />
-          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-800">
-            {product.brand}
-          </span>
-          <span className="text-xs font-serif font-bold text-zinc-900">
-            {product.name}
-          </span>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-zinc-800">{product.brand}</span>
+          <span className="text-xs font-serif font-bold text-zinc-900">{product.name}</span>
         </div>
       )}
-
       {size === 'lg' && (
         <div className="absolute bottom-2.5 right-3 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-950/85 text-amber-300 text-[10px] font-bold tracking-wider uppercase shadow">
           <ShieldCheck className="w-3 h-3 text-amber-400" />
@@ -241,7 +150,6 @@ const PerfumePhotoShowcase = ({
   );
 };
 
-// --- REALISTIC TUNISIAN PERFUME CATALOG DATA WITH OFFICIAL BOTTLE PHOTOS ---
 const PERFUMES_DATA = [
   {
     id: 1,
@@ -263,7 +171,7 @@ const PERFUMES_DATA = [
     accentColor: "#d97706",
     shortLabel: "KHAMRAH",
     inspiration: "Oriental Gourmand Épicé — Le N°1 des ventes en Tunisie",
-    description: "Un élixir oriental somptueux mêlant la chaleur de la cannelle, la douceur des dattes confites et un fond praliné vanillé irrésistible dans un flacon cristal iconique. Tenue extrême de plus de 12 heures.",
+    description: "Un élixir oriental somptueux mêlant la chaleur de la cannelle, la douceur des dattes confites et un fond praliné vanillé irrésistible dans un flacon cristal iconique.",
     topNotes: ["Cannelle", "Noix de Muscade", "Bergamote"],
     heartNotes: ["Dattes", "Praliné", "Tubéreuse", "Mahonial"],
     baseNotes: ["Vanille", "Fève Tonka", "Bois d'Akigala", "Myrrhe", "Benjoin"],
@@ -319,7 +227,7 @@ const PERFUMES_DATA = [
     accentColor: "#d4af37",
     shortLabel: "ASAD",
     inspiration: "Puissance Masculine — Épices Noires, Tabac & Vanille Ambrée",
-    description: "Un parfum masculin puissant et racé dans son flacon noir et or. Le poivre noir rencontre le tabac blond et l'ananas, soutenus par un cœur de café et une vanille sèche boisée.",
+    description: "Un parfum masculin puissant et racé dans son flacon noir et or.",
     topNotes: ["Poivre Noir", "Tabac", "Ananas"],
     heartNotes: ["Patchouli", "Café", "Iris"],
     baseNotes: ["Vanille", "Ambre", "Bois Secs", "Benjoin", "Labdanum"],
@@ -347,7 +255,7 @@ const PERFUMES_DATA = [
     accentColor: "#f472b6",
     shortLabel: "YARA",
     inspiration: "Douceur Lactée, Fruits Tropicaux & Vanille Poudrée",
-    description: "L'icône féminine par excellence en Tunisie. Un nuage velouté d'orchidée, de fruits tropicaux crémeux et de vanille poudrée qui attire tous les compliments.",
+    description: "L'icône féminine par excellence en Tunisie.",
     topNotes: ["Orchidée", "Héliotrope", "Mandarine"],
     heartNotes: ["Accord Gourmand", "Fruits Tropicaux"],
     baseNotes: ["Vanille", "Musc Blanc", "Bois de Santal"],
@@ -375,7 +283,7 @@ const PERFUMES_DATA = [
     accentColor: "#fde047",
     shortLabel: "ANGHAM",
     inspiration: "Symphonie Dorée de Lavande, Praliné & Vanille Cacao",
-    description: "Une harmonie envoûtante où la fraîcheur aromatique de la lavande et du gingembre se fond dans un trio exquis de vanille infusée, de praliné et de cacao.",
+    description: "Une harmonie envoûtante.",
     topNotes: ["Mandarine", "Gingembre", "Poivre Rose"],
     heartNotes: ["Lavande", "Praliné", "Cacao", "Jasmin"],
     baseNotes: ["Vanille", "Ambre", "Musc"],
@@ -403,7 +311,7 @@ const PERFUMES_DATA = [
     accentColor: "#fcd34d",
     shortLabel: "ECLAIRE",
     inspiration: "Caramel Fondant, Lait Chaud, Miel & Vanille Gourmande",
-    description: "La révélation gourmande de Lattafa. Un délice irrésistible de caramel beurre salé, de lait sucré, de miel doré et de praliné vanillé au sillage ultra-complimenté.",
+    description: "La révélation gourmande de Lattafa.",
     topNotes: ["Caramel", "Lait Chaud", "Sucre"],
     heartNotes: ["Miel Doré", "Fleurs Blanches"],
     baseNotes: ["Vanille", "Praliné", "Musc Crémeux"],
@@ -431,7 +339,7 @@ const PERFUMES_DATA = [
     accentColor: "#fef08a",
     shortLabel: "HONOR & GLORY",
     inspiration: "Ananas Crème Brûlée, Curcuma Épicé & Vanille Santal",
-    description: "Dans son flacon blanc et or sculptural, Honor & Glory marie l'exotisme d'un ananas rôti façon crème brûlée à la chaleur de la cannelle, du poivre noir et du bois de santal.",
+    description: "Dans son flacon blanc et or sculptural.",
     topNotes: ["Ananas", "Crème Brûlée"],
     heartNotes: ["Cannelle", "Benjoin", "Curcuma", "Poivre Noir"],
     baseNotes: ["Vanille", "Bois de Santal", "Cashmeran", "Mousse"],
@@ -459,7 +367,7 @@ const PERFUMES_DATA = [
     accentColor: "#ca8a04",
     shortLabel: "9 PM",
     inspiration: "Le Roi des Soirées — Pomme Croquante, Cannelle & Vanille",
-    description: "Le parfum de soirée par excellence. Une ouverture vibrante de pomme rouge, bergamote et cannelle qui fond sur un lit sensuel de vanille ambrée et de fève tonka.",
+    description: "Le parfum de soirée par excellence.",
     topNotes: ["Pomme", "Cannelle", "Lavande sauvage", "Bergamote"],
     heartNotes: ["Fleur d'oranger", "Muguet"],
     baseNotes: ["Vanille", "Fève Tonka", "Ambre", "Patchouli"],
@@ -487,7 +395,7 @@ const PERFUMES_DATA = [
     accentColor: "#94a3b8",
     shortLabel: "SUPREMACY",
     inspiration: "Extrait Impérial — Cassis, Bergamote & Mousse de Chêne",
-    description: "Un Extrait de Parfum à la performance monumentale. Une explosion fruitée-fumée de cassis, pomme et bergamote sur un fond noble de mousse de chêne, ambre gris et safran.",
+    description: "Un Extrait de Parfum à la performance monumentale.",
     topNotes: ["Cassis", "Bergamote", "Pomme"],
     heartNotes: ["Mousse de Chêne", "Patchouli", "Lavande"],
     baseNotes: ["Ambre Gris", "Safran", "Musc"],
@@ -515,7 +423,7 @@ const PERFUMES_DATA = [
     accentColor: "#60a5fa",
     shortLabel: "TURATHI BLUE",
     inspiration: "Pamplemousse Scintillant, Ambre & Bois Précieux",
-    description: "L'élégance méditerranéenne alliée au savoir-faire oriental. Un pamplemousse juteux et vibrant soutenu par des notes ambrées, boisées et musquées d'une grande noblesse.",
+    description: "L'élégance méditerranéenne.",
     topNotes: ["Pamplemousse", "Bergamote", "Mandarine"],
     heartNotes: ["Ambre", "Notes Boisées"],
     baseNotes: ["Musc", "Patchouli", "Épices Fraîches"],
@@ -543,7 +451,7 @@ const PERFUMES_DATA = [
     accentColor: "#fbbf24",
     shortLabel: "SHARAF BLEND",
     inspiration: "Extrait de Parfum — Safran, Dattes & Vanille Liquoreuse",
-    description: "Présenté dans un flacon cristal d'exception signé Zimaya, Sharaf Blend dévoile un accord liquoreux raffiné mêlant safran précieux, muscade, dattes royales et vanille fève tonka.",
+    description: "Présenté dans un flacon cristal d'exception.",
     topNotes: ["Noix de Muscade", "Safran", "Dattes"],
     heartNotes: ["Vanille", "Praliné", "Tubéreuse"],
     baseNotes: ["Fève Tonka", "Bois d'Ambre", "Benjoin", "Musc"],
@@ -571,7 +479,7 @@ const PERFUMES_DATA = [
     accentColor: "#fda4af",
     shortLabel: "FATIMA PINK",
     inspiration: "Bouquet Royal de Rose Turque, Litchi & Rhubarbe",
-    description: "Un Extrait de Parfum floral-fruité sophistiqué présenté dans un écrin rose impérial. L'alliance pétillante de la rhubarbe et du litchi révèle un cœur de rose veloutée et de vanille musquée.",
+    description: "Un Extrait de Parfum floral-fruité sophistiqué.",
     topNotes: ["Litchi", "Rhubarbe", "Bergamote", "Muscade"],
     heartNotes: ["Rose Turque", "Pivoine", "Vanille"],
     baseNotes: ["Cashmeran", "Musc Blanc", "Vétiver", "Encens"],
@@ -599,7 +507,7 @@ const PERFUMES_DATA = [
     accentColor: "#f59e0b",
     shortLabel: "LIQUID BRUN",
     inspiration: "Haute Parfumerie Niche — Vanille Bourbon & Fleur d'Oranger",
-    description: "La sensation mondiale signée French Avenue. Un chef-d'œuvre de vanille Bourbon enveloppée de fleur d'oranger lumineuse, cannelle fine, cardamome et praliné boisé.",
+    description: "La sensation mondiale signée French Avenue.",
     topNotes: ["Cannelle", "Fleur d'oranger", "Cardamome", "Bergamote"],
     heartNotes: ["Vanille Bourbon", "Élémi"],
     baseNotes: ["Praliné", "Ambroxan", "Bois de Gaïac", "Musc"],
@@ -627,7 +535,7 @@ const PERFUMES_DATA = [
     accentColor: "#e4e4e7",
     shortLabel: "SPECTRE GHOST",
     inspiration: "Gingembre Frais, Cardamome & Vanille Noire Boisée",
-    description: "Un flacon avant-gardiste renfermant la plus belle vanille épicée du marché. Le gingembre frais, la bergamote et la cardamome illuminent une vanille boisée profonde et magnétique.",
+    description: "Un flacon avant-gardiste.",
     topNotes: ["Gingembre", "Cardamome", "Bergamote"],
     heartNotes: ["Poivre Rose", "Cassis", "Rose"],
     baseNotes: ["Vanille", "Cèdre", "Patchouli", "Benjoin"],
@@ -655,7 +563,7 @@ const PERFUMES_DATA = [
     accentColor: "#f59e0b",
     shortLabel: "ROYAL BLEND",
     inspiration: "Accord Cognac Boisé, Cannelle, Prune & Fève Tonka",
-    description: "L'excellence de la collection French Avenue dans un flacon cristal ciselé. Un accord liquoreux et chaleureux de prune confite, cannelle épicée, fève tonka et vanille boisée.",
+    description: "L'excellence de la collection French Avenue.",
     topNotes: ["Cannelle", "Prune", "Accord Liquoreux"],
     heartNotes: ["Iris", "Myrrhe"],
     baseNotes: ["Fève Tonka", "Vanille", "Bois de Santal"],
@@ -683,7 +591,7 @@ const PERFUMES_DATA = [
     accentColor: "#71717a",
     shortLabel: "CDNIM",
     inspiration: "La Légende Boisée Citronnée — Compliments Garantis",
-    description: "Le best-seller mondial incontesté. Une attaque vive de citron, bergamote et ananas suivie d'un cœur de bouleau fumé et d'un fond ambre gris ultra masculin.",
+    description: "Le best-seller mondial incontesté.",
     topNotes: ["Citron", "Ananas", "Bergamote", "Cassis", "Pomme"],
     heartNotes: ["Bouleau", "Jasmin", "Rose"],
     baseNotes: ["Musc", "Ambre Gris", "Patchouli", "Vanille"],
@@ -711,7 +619,7 @@ const PERFUMES_DATA = [
     accentColor: "#d97706",
     shortLabel: "KISMET MAGIC",
     inspiration: "Nectar Liquoreux de Fève Tonka, Cannelle & Vanille",
-    description: "Un parfum chaleureux et envoûtant aux accents de miel épicé, de fève tonka grillée, de praliné noisette et de vanille ambrée. Idéal pour les soirées fraîches.",
+    description: "Un parfum chaleureux et envoûtant.",
     topNotes: ["Cannelle", "Bois de Chêne"],
     heartNotes: ["Fève Tonka", "Praliné", "Noisette"],
     baseNotes: ["Vanille", "Bois de Santal", "Miel Ambré"],
@@ -743,7 +651,7 @@ const HERO_SLIDES = [
     id: 1,
     badge: "BOUTIQUE OFFICIELLE ALADIN • 100% AUTHENTIQUE IMPORTÉ DE DUBAÏ",
     title: "ALADIN — L'Élixir d'Orient & Parfums de Luxe en Tunisie",
-    subtitle: "Découvrez les véritables flacons de Lattafa, French Avenue, Afnan, Zimaya et Armaf sélectionnés par Aladin. Garantie d'origine avec paiement à la livraison sur les 24 gouvernorats.",
+    subtitle: "Découvrez les véritables flacons de Lattafa, French Avenue, Afnan, Zimaya et Armaf sélectionnés par Aladin.",
     ctaPrimary: "Découvrir les Best-Sellers",
     featuredProductId: 1,
     highlightBrand: "Lattafa Khamrah & Qahwa",
@@ -753,7 +661,7 @@ const HERO_SLIDES = [
     id: 2,
     badge: "EXCLUSIVITÉ ALADIN PARFUMS • FRENCH AVENUE",
     title: "Liquid Brun, Spectre Ghost & Royal Blend",
-    subtitle: "Les créations les plus recherchées de French Avenue enfin disponibles chez Aladin Parfums. Tenue extrême et sillage royal livrés chez vous en 24h/48h.",
+    subtitle: "Les créations les plus recherchées de French Avenue enfin disponibles chez Aladin Parfums.",
     ctaPrimary: "Explorer French Avenue",
     featuredProductId: 13,
     highlightBrand: "French Avenue Paris",
@@ -763,7 +671,7 @@ const HERO_SLIDES = [
     id: 3,
     badge: "SÉLECTION AFNAN & ZIMAYA • EXTRAITS DE PARFUM",
     title: "9PM, Supremacy & Sharaf Blend : L'Élégance Absolue",
-    subtitle: "Des concentrations en Extrait de Parfum pour une signature olfactive inoubliable du matin jusqu'au bout de la nuit.",
+    subtitle: "Des concentrations en Extrait de Parfum pour une signature olfactive inoubliable.",
     ctaPrimary: "Voir les Promotions",
     featuredProductId: 8,
     highlightBrand: "Afnan & Zimaya",
@@ -774,7 +682,7 @@ const HERO_SLIDES = [
 const FAQ_ITEMS = [
   {
     q: "Vos parfums chez Aladin Parfums sont-ils 100% originaux ?",
-    a: "Absolument. Tous nos parfums (Lattafa, Afnan, Zimaya, French Avenue, Armaf, Maison Alhambra) sont importés directement des Émirats Arabes Unis avec leur hologramme d'authenticité officiel et sous blister scellé. Vous avez le droit de vérifier votre colis à la livraison."
+    a: "Absolument. Tous nos parfums sont importés directement des Émirats Arabes Unis avec leur hologramme d'authenticité officiel et sous blister scellé."
   },
   {
     q: "Quels sont les délais et tarifs de livraison en Tunisie ?",
@@ -782,22 +690,13 @@ const FAQ_ITEMS = [
   },
   {
     q: "Comment fonctionne la confirmation de commande ?",
-    a: "Dès validation de votre commande, Aladin reçoit instantanément votre bon de commande par notification automatique et WhatsApp (+216 94 318 153). Le paiement s'effectue en espèces à la livraison (Cash on Delivery)."
-  },
-  {
-    q: "Proposez-vous la vente en gros pour les boutiques et revendeurs ?",
-    a: "Oui ! Nous disposons d'un tarif préférentiel pour les commandes en gros (à partir de 12 pièces). Cliquez sur 'Commande en Gros' en haut de page ou contactez Aladin directement sur le +216 94 318 153."
+    a: "Dès validation de votre commande, Aladin reçoit instantanément votre bon de commande sur WhatsApp (+216 94 318 153). Le paiement s'effectue en espèces à la livraison."
   }
 ];
 
 const buildFormattedOrderReceipt = (order) => {
   const itemsLines = order.items
-    .map(
-      (i) =>
-        `• \${i.quantity}x *${i.product.brand}${i.product.name}* (${i.product.volume}) —${
-          i.product.price * i.quantity
-        } DT`
-    )
+    .map((i) => `• \${i.quantity}x *${i.product.brand}${i.product.name}* (${i.product.volume}) —${i.product.price * i.quantity} DT`)
     .join("\n");
 
   return [
@@ -818,15 +717,11 @@ const buildFormattedOrderReceipt = (order) => {
     ``,
     `💰 *RÉCAPITULATIF :*`,
     `• Sous-total : ${order.subtotal.toFixed(3)} DT`,
-    `• Livraison : ${
-      order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`
-    }`,
+    `• Livraison : ${order.shipping === 0 ? "GRATUITE (0 DT)" : `\${order.shipping.toFixed(3)} DT`}`,
     `• *TOTAL À PAYER (Cash à la livraison) : ${order.total.toFixed(3)} DT*`,
     `━━━━━━━━━━━━━━━━━━━━`,
     `Merci de confirmer ma commande Aladin Parfums !`
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ].filter(Boolean).join("\n");
 };
 
 export default function App() {
@@ -980,9 +875,7 @@ export default function App() {
       const existing = prev.find((item) => item.product.id === product.id);
       if (existing) {
         return prev.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: Math.min(item.quantity + qty, 10) }
-            : item
+          item.product.id === product.id ? { ...item, quantity: Math.min(item.quantity + qty, 10) } : item
         );
       }
       return [...prev, { product, quantity: qty }];
@@ -992,13 +885,7 @@ export default function App() {
 
   const updateCartQty = (productId, delta) => {
     setCart((prev) =>
-      prev
-        .map((item) =>
-          item.product.id === productId
-            ? { ...item, quantity: item.quantity + delta }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
+      prev.map((item) => (item.product.id === productId ? { ...item, quantity: item.quantity + delta } : item)).filter((item) => item.quantity > 0)
     );
   };
 
@@ -1007,14 +894,10 @@ export default function App() {
     setWishlist((prev) => {
       const exists = prev.includes(productId);
       if (exists) {
-        if (targetProduct) {
-          showToast(`${targetProduct.name} retiré de vos favoris.`);
-        }
+        if (targetProduct) showToast(`${targetProduct.name} retiré de vos favoris.`);
         return prev.filter((id) => id !== productId);
       } else {
-        if (targetProduct) {
-          showToast(`${targetProduct.brand} ${targetProduct.name} ajouté aux favoris ♥`);
-        }
+        if (targetProduct) showToast(`${targetProduct.brand} ${targetProduct.name} ajouté aux favoris ♥`);
         return [...prev, productId];
       }
     });
@@ -1057,9 +940,7 @@ export default function App() {
 
       if (notificationConfig.adminEmail.trim()) {
         try {
-          const emailEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(
-            notificationConfig.adminEmail.trim()
-          )}`;
+          const emailEndpoint = `https://formsubmit.co/ajax/${encodeURIComponent(notificationConfig.adminEmail.trim())}`;
           const res = await fetch(emailEndpoint, {
             method: "POST",
             headers: {
@@ -1143,10 +1024,7 @@ export default function App() {
     };
 
     const receiptText = buildFormattedOrderReceipt(newOrder);
-    const whatsappTarget = (notificationConfig.whatsappNumber || STORE_WHATSAPP_NUMBER).replace(
-      /\D/g,
-      ""
-    );
+    const whatsappTarget = (notificationConfig.whatsappNumber || STORE_WHATSAPP_NUMBER).replace(/\D/g, "");
     const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(receiptText)}`;
 
     const bgChannels = await triggerBackgroundNotifications(newOrder);
@@ -1196,9 +1074,7 @@ export default function App() {
     if (sent.length > 0) {
       setTestAlertStatus(`✅ Alerte envoyée avec succès via : ${sent.join(", ")} !`);
     } else {
-      setTestAlertStatus(
-        "⚠️ Veuillez d'abord activer et remplir vos identifiants (Email ou Telegram) ci-dessous."
-      );
+      setTestAlertStatus("⚠️ Veuillez d'abord activer et remplir vos identifiants (Email ou Telegram) ci-dessous.");
     }
   };
 
@@ -1253,28 +1129,21 @@ export default function App() {
       )}
 
       <a
-        href={`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(
-          "Bonjour Aladin Parfums ! Je souhaite avoir un conseil sur vos parfums."
-        )}`}
+        href={`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent("Bonjour Aladin Parfums ! Je souhaite avoir un conseil sur vos parfums.")}`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-5 left-5 z-40 flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-full shadow-2xl border border-emerald-400/40 transition group"
         title="Contacter Aladin sur WhatsApp"
       >
         <MessageCircle className="w-5 h-5 fill-white/20" />
-        <span className="text-xs font-bold hidden sm:inline">
-          WhatsApp Aladin • {STORE_PHONE_DISPLAY}
-        </span>
+        <span className="text-xs font-bold hidden sm:inline">WhatsApp Aladin • {STORE_PHONE_DISPLAY}</span>
       </a>
 
       <div className="bg-gradient-to-r from-amber-950/90 via-zinc-900 to-amber-950/90 border-b border-amber-500/20 text-xs sm:text-sm py-2.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-amber-200/95 font-medium mx-auto sm:mx-0">
             <Truck className="w-4 h-4 text-amber-400 shrink-0" />
-            <span>
-              Livraison rapide partout en Tunisie (24h–48h) •{" "}
-              <strong className="text-amber-300">Frais fixes : 8 DT</strong> (Gratuite dès 250 DT)
-            </span>
+            <span>Livraison rapide partout en Tunisie (24h–48h) • <strong className="text-amber-300">Frais fixes : 8 DT</strong> (Gratuite dès 250 DT)</span>
           </div>
           <div className="hidden md:flex items-center gap-4 text-zinc-300 text-xs">
             <span className="flex items-center gap-1.5 text-emerald-300 font-medium">
@@ -1282,18 +1151,12 @@ export default function App() {
               Parfums 100% Originaux Scellés
             </span>
             <span className="text-zinc-600">|</span>
-            <button
-              onClick={() => setIsWholesaleModalOpen(true)}
-              className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 transition underline-offset-4 hover:underline"
-            >
+            <button onClick={() => setIsWholesaleModalOpen(true)} className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 transition underline-offset-4 hover:underline">
               <Building2 className="w-3.5 h-3.5" />
               Commande en Gros
             </button>
             <span className="text-zinc-600">|</span>
-            <a
-              href={`tel:${STORE_WHATSAPP_NUMBER}`}
-              className="flex items-center gap-1.5 hover:text-amber-300 transition"
-            >
+            <a href={`tel:${STORE_WHATSAPP_NUMBER}`} className="flex items-center gap-1.5 hover:text-amber-300 transition">
               <Phone className="w-3.5 h-3.5 text-amber-400" />
               Service Client : <strong className="text-white">{STORE_PHONE_DISPLAY}</strong>
             </a>
@@ -1349,10 +1212,7 @@ export default function App() {
                   className="w-full bg-zinc-900/90 border border-zinc-800 focus:border-amber-500/70 rounded-full pl-10 pr-9 py-2 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none transition"
                 />
                 {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white"
-                  >
+                  <button onClick={() => setSearchQuery("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white">
                     <X className="w-4 h-4" />
                   </button>
                 )}
@@ -1365,11 +1225,7 @@ export default function App() {
                 className="relative p-2.5 rounded-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 text-zinc-300 hover:text-amber-400 transition"
                 title="Mes Favoris"
               >
-                <Heart
-                  className={`w-5 h-5 transition ${
-                    wishlist.length > 0 ? "text-rose-400 fill-rose-400" : ""
-                  }`}
-                />
+                <Heart className={`w-5 h-5 transition ${wishlist.length > 0 ? "text-rose-400 fill-rose-400" : ""}`} />
                 {wishlist.length > 0 && (
                   <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-[10px] font-bold flex items-center justify-center text-white shadow">
                     {wishlist.length}
@@ -1421,8 +1277,7 @@ export default function App() {
                 { label: "En Promotion", cat: "En Promotion", gender: "Tous", icon: Percent, highlight: true }
               ].map((nav, idx) => {
                 const IconComponent = nav.icon;
-                const isActive =
-                  selectedCategory === nav.cat && selectedGender === nav.gender && nav.label !== "Accueil";
+                const isActive = selectedCategory === nav.cat && selectedGender === nav.gender && nav.label !== "Accueil";
                 return (
                   <button
                     key={idx}
@@ -1432,11 +1287,7 @@ export default function App() {
                       scrollToCatalog();
                     }}
                     className={`flex items-center gap-1.5 font-medium transition ${
-                      nav.highlight
-                        ? "text-rose-400 hover:text-rose-300"
-                        : isActive
-                        ? "text-amber-400"
-                        : "text-zinc-300 hover:text-amber-400"
+                      nav.highlight ? "text-rose-400 hover:text-rose-300" : isActive ? "text-amber-400" : "text-zinc-300 hover:text-amber-400"
                     }`}
                   >
                     {IconComponent && <IconComponent className="w-3.5 h-3.5" />}
@@ -1445,7 +1296,6 @@ export default function App() {
                 );
               })}
             </div>
-
             <div className="flex items-center gap-2 text-xs text-amber-400/90 font-medium">
               <ShieldCheck className="w-4 h-4" />
               <span>Boutique Officielle Aladin • Importé des Émirats</span>
@@ -1465,9 +1315,7 @@ export default function App() {
                     scrollToCatalog();
                   }}
                   className={`px-3 py-2 rounded-lg text-xs font-semibold text-left border ${
-                    selectedCategory === cat
-                      ? "bg-amber-500/20 border-amber-500 text-amber-300"
-                      : "bg-zinc-900 border-zinc-800 text-zinc-300"
+                    selectedCategory === cat ? "bg-amber-500/20 border-amber-500 text-amber-300" : "bg-zinc-900 border-zinc-800 text-zinc-300"
                   }`}
                 >
                   {cat === "Tous" ? "Tout le Catalogue" : cat}
@@ -1503,14 +1351,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-14 lg:py-16 relative z-10">
           {HERO_SLIDES.map((slide, index) => {
             if (index !== currentHeroSlide) return null;
-            const featuredPerfume =
-              PERFUMES_DATA.find((p) => p.id === slide.featuredProductId) || PERFUMES_DATA[0];
+            const featuredPerfume = PERFUMES_DATA.find((p) => p.id === slide.featuredProductId) || PERFUMES_DATA[0];
 
             return (
-              <div
-                key={slide.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-              >
+              <div key={slide.id} className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wider uppercase">
                     <Sparkles className="w-3.5 h-3.5" />
@@ -1588,26 +1432,16 @@ export default function App() {
                     </div>
 
                     <div className="text-center mt-3 space-y-2">
-                      <div className="text-xs uppercase tracking-widest text-amber-400 font-semibold">
-                        {featuredPerfume.brand}
-                      </div>
-                      <h3 className="text-xl font-serif font-bold text-white">
-                        {featuredPerfume.name}
-                      </h3>
-                      <p className="text-xs text-zinc-400 line-clamp-2">
-                        {featuredPerfume.inspiration}
-                      </p>
+                      <div className="text-xs uppercase tracking-widest text-amber-400 font-semibold">{featuredPerfume.brand}</div>
+                      <h3 className="text-xl font-serif font-bold text-white">{featuredPerfume.name}</h3>
+                      <p className="text-xs text-zinc-400 line-clamp-2">{featuredPerfume.inspiration}</p>
 
                       <div className="pt-3 flex items-center justify-between border-t border-zinc-800/80">
                         <div className="text-left">
                           {featuredPerfume.oldPrice && (
-                            <span className="text-xs text-zinc-500 line-through mr-2">
-                              {featuredPerfume.oldPrice} DT
-                            </span>
+                            <span className="text-xs text-zinc-500 line-through mr-2">{featuredPerfume.oldPrice} DT</span>
                           )}
-                          <span className="text-2xl font-bold text-amber-400">
-                            {featuredPerfume.price} DT
-                          </span>
+                          <span className="text-2xl font-bold text-amber-400">{featuredPerfume.price} DT</span>
                         </div>
                         <button
                           onClick={() => addToCart(featuredPerfume, 1)}
@@ -1629,9 +1463,7 @@ export default function App() {
               <button
                 key={s.id}
                 onClick={() => setCurrentHeroSlide(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  currentHeroSlide === idx ? "w-8 bg-amber-400" : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                }`}
+                className={`h-2 rounded-full transition-all ${currentHeroSlide === idx ? "w-8 bg-amber-400" : "w-2 bg-zinc-700 hover:bg-zinc-500"}`}
                 aria-label={`Slide ${idx + 1}`}
               />
             ))}
@@ -1643,18 +1475,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h2 className="text-sm uppercase tracking-[0.2em] text-amber-400 font-semibold">
-                Nos Maisons de Parfumerie
-              </h2>
-              <p className="text-xs text-zinc-400">
-                Cliquez sur une marque pour filtrer les parfums disponibles chez Aladin Parfums
-              </p>
+              <h2 className="text-sm uppercase tracking-[0.2em] text-amber-400 font-semibold">Nos Maisons de Parfumerie</h2>
+              <p className="text-xs text-zinc-400">Cliquez sur une marque pour filtrer les parfums disponibles chez Aladin Parfums</p>
             </div>
             {selectedBrand !== "Toutes" && (
-              <button
-                onClick={() => setSelectedBrand("Toutes")}
-                className="text-xs text-amber-400 hover:underline flex items-center gap-1"
-              >
+              <button onClick={() => setSelectedBrand("Toutes")} className="text-xs text-amber-400 hover:underline flex items-center gap-1">
                 Afficher toutes les marques <X className="w-3.5 h-3.5" />
               </button>
             )}
@@ -1671,22 +1496,12 @@ export default function App() {
                     scrollToCatalog();
                   }}
                   className={`p-3.5 rounded-2xl border text-left transition-all flex flex-col justify-between ${
-                    isSelected
-                      ? "bg-gradient-to-br from-amber-500/20 to-amber-900/20 border-amber-400 shadow-lg shadow-amber-500/10"
-                      : "bg-zinc-900/70 border-zinc-800/90 hover:border-zinc-700"
+                    isSelected ? "bg-gradient-to-br from-amber-500/20 to-amber-900/20 border-amber-400 shadow-lg shadow-amber-500/10" : "bg-zinc-900/70 border-zinc-800/90 hover:border-zinc-700"
                   }`}
                 >
                   <div className="flex items-center justify-between w-full mb-1">
-                    <span
-                      className={`font-serif font-bold text-sm ${
-                        isSelected ? "text-amber-300" : "text-white"
-                      }`}
-                    >
-                      {b.name}
-                    </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-800 text-zinc-400">
-                      {b.count}
-                    </span>
+                    <span className={`font-serif font-bold text-sm ${isSelected ? "text-amber-300" : "text-white"}`}>{b.name}</span>
+                    <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-800 text-zinc-400">{b.count}</span>
                   </div>
                   <span className="text-[11px] text-zinc-400 truncate w-full">{b.tagline}</span>
                 </button>
@@ -1707,11 +1522,7 @@ export default function App() {
                 <button
                   key={g}
                   onClick={() => setSelectedGender(g)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${
-                    selectedGender === g
-                      ? "bg-amber-500 text-zinc-950 shadow"
-                      : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
-                  }`}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${selectedGender === g ? "bg-amber-500 text-zinc-950 shadow" : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"}`}
                 >
                   {g}
                 </button>
@@ -1725,9 +1536,7 @@ export default function App() {
                   key={note}
                   onClick={() => setSelectedNoteFilter(note)}
                   className={`px-3 py-1 rounded-full text-xs transition border ${
-                    selectedNoteFilter === note
-                      ? "bg-amber-500/20 border-amber-400 text-amber-300 font-semibold"
-                      : "bg-zinc-950/70 border-zinc-800 text-zinc-400 hover:text-zinc-200"
+                    selectedNoteFilter === note ? "bg-amber-500/20 border-amber-400 text-amber-300 font-semibold" : "bg-zinc-950/70 border-zinc-800 text-zinc-400 hover:text-zinc-200"
                   }`}
                 >
                   {note}
@@ -1752,14 +1561,8 @@ export default function App() {
 
           <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-zinc-800/80 text-xs text-zinc-400">
             <div>
-              Affichage de <strong className="text-white">{filteredProducts.length}</strong> parfum(s) chez{" "}
-              <strong className="text-amber-400">Aladin Parfums</strong>
-              {selectedBrand !== "Toutes" && (
-                <span>
-                  {" "}
-                  • Marque : <strong className="text-amber-400">{selectedBrand}</strong>
-                </span>
-              )}
+              Affichage de <strong className="text-white">{filteredProducts.length}</strong> parfum(s) chez <strong className="text-amber-400">Aladin Parfums</strong>
+              {selectedBrand !== "Toutes" && <span> • Marque : <strong className="text-amber-400">{selectedBrand}</strong></span>}
             </div>
 
             <div className="flex items-center gap-2">
@@ -1773,9 +1576,7 @@ export default function App() {
                   key={mode.id}
                   onClick={() => setStudioTheme(mode.id)}
                   className={`px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
-                    studioTheme === mode.id
-                      ? "bg-amber-500/20 border-amber-400 text-amber-300"
-                      : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white"
+                    studioTheme === mode.id ? "bg-amber-500/20 border-amber-400 text-amber-300" : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white"
                   }`}
                 >
                   {mode.label}
@@ -1788,12 +1589,8 @@ export default function App() {
         {filteredProducts.length === 0 ? (
           <div className="text-center py-16 bg-zinc-900/40 rounded-3xl border border-zinc-800 p-8">
             <Sparkles className="w-10 h-10 text-amber-400 mx-auto mb-3 opacity-80" />
-            <h3 className="text-lg font-serif font-bold text-white mb-1">
-              Aucun parfum ne correspond à votre recherche
-            </h3>
-            <p className="text-sm text-zinc-400 mb-5">
-              Essayez de modifier vos filtres ou recherchez une autre note (ex: Vanille, Ambre, Lattafa).
-            </p>
+            <h3 className="text-lg font-serif font-bold text-white mb-1">Aucun parfum ne correspond à votre recherche</h3>
+            <p className="text-sm text-zinc-400 mb-5">Essayez de modifier vos filtres ou recherchez une autre note (ex: Vanille, Ambre, Lattafa).</p>
             <button
               onClick={() => {
                 setSelectedBrand("Toutes");
@@ -1811,9 +1608,7 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProducts.map((product) => {
               const isWishlisted = wishlist.includes(product.id);
-              const discountPercent = product.oldPrice
-                ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
-                : null;
+              const discountPercent = product.oldPrice ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : null;
 
               return (
                 <div
@@ -1842,9 +1637,7 @@ export default function App() {
                     <button
                       onClick={() => toggleWishlist(product.id)}
                       className={`p-2 rounded-full border transition shrink-0 ${
-                        isWishlisted
-                          ? "bg-rose-500/20 border-rose-500/50 text-rose-400"
-                          : "bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-white"
+                        isWishlisted ? "bg-rose-500/20 border-rose-500/50 text-rose-400" : "bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-white"
                       }`}
                       title="Ajouter aux favoris"
                     >
@@ -1859,12 +1652,7 @@ export default function App() {
                     }}
                     className="cursor-pointer mb-3 relative"
                   >
-                    <PerfumePhotoShowcase
-                      product={product}
-                      size="md"
-                      studioTheme={studioTheme}
-                      customImageUrl={customImages[product.id]}
-                    />
+                    <PerfumePhotoShowcase product={product} size="md" studioTheme={studioTheme} customImageUrl={customImages[product.id]} />
                     <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                       <span className="px-3 py-1 rounded-full bg-zinc-950/90 text-amber-300 text-[10px] font-semibold flex items-center gap-1 shadow-lg border border-amber-500/30 whitespace-nowrap">
                         <Eye className="w-3 h-3" /> Pyramide olfactive
@@ -1874,12 +1662,8 @@ export default function App() {
 
                   <div className="space-y-2">
                     <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                      <span className="uppercase tracking-wider font-semibold text-amber-400">
-                        {product.brand}
-                      </span>
-                      <span>
-                        {product.gender} • {product.volume}
-                      </span>
+                      <span className="uppercase tracking-wider font-semibold text-amber-400">{product.brand}</span>
+                      <span>{product.gender} • {product.volume}</span>
                     </div>
 
                     <h3
@@ -1900,18 +1684,12 @@ export default function App() {
                         <span className="font-bold text-white">{product.rating}</span>
                         <span className="text-zinc-500">({product.reviews})</span>
                       </div>
-                      <span className="text-[11px] text-emerald-400 font-medium">
-                        ● En stock
-                      </span>
+                      <span className="text-[11px] text-emerald-400 font-medium">● En stock</span>
                     </div>
 
                     <div className="pt-3 mt-2 border-t border-zinc-800/80 flex items-center justify-between gap-2">
                       <div>
-                        {product.oldPrice && (
-                          <span className="block text-[11px] text-zinc-500 line-through">
-                            {product.oldPrice.toFixed(0)} DT
-                          </span>
-                        )}
+                        {product.oldPrice && <span className="block text-[11px] text-zinc-500 line-through">{product.oldPrice.toFixed(0)} DT</span>}
                         <span className="text-lg font-extrabold text-amber-400">
                           {product.price.toFixed(0)} <span className="text-xs font-semibold">DT</span>
                         </span>
@@ -1931,8 +1709,7 @@ export default function App() {
                           onClick={() => addToCart(product, 1)}
                           className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-bold text-xs transition flex items-center gap-1 shadow-md shadow-amber-500/10"
                         >
-                          <Plus className="w-3.5 h-3.5" />
-                          Panier
+                          <Plus className="w-3.5 h-3.5" /> Panier
                         </button>
                       </div>
                     </div>
@@ -1952,12 +1729,8 @@ export default function App() {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Authenticité Garantie par Aladin
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Parfums 100% originaux sous blister avec code-barres et hologramme officiel des maisons Lattafa, Afnan et French Avenue.
-                </p>
+                <h4 className="font-serif font-bold text-white text-sm mb-1">Authenticité Garantie par Aladin</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">Parfums 100% originaux sous blister avec hologramme officiel.</p>
               </div>
             </div>
 
@@ -1966,12 +1739,8 @@ export default function App() {
                 <Truck className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Livraison Rapide 24h–48h
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Expédition express sur les 24 gouvernorats de Tunisie. Tarif fixe de 8 DT et gratuite dès 250 DT.
-                </p>
+                <h4 className="font-serif font-bold text-white text-sm mb-1">Livraison Rapide 24h–48h</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">Expédition express sur les 24 gouvernorats de Tunisie (8 DT).</p>
               </div>
             </div>
 
@@ -1980,12 +1749,8 @@ export default function App() {
                 <MessageCircle className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Confirmation WhatsApp & Alerte Directe
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Dès votre commande validée, Aladin reçoit instantanément votre fiche de livraison sur WhatsApp ({STORE_PHONE_DISPLAY}) et par notification.
-                </p>
+                <h4 className="font-serif font-bold text-white text-sm mb-1">Confirmation WhatsApp</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">Alerte immédiate transmise sur WhatsApp ({STORE_PHONE_DISPLAY}).</p>
               </div>
             </div>
 
@@ -1994,12 +1759,8 @@ export default function App() {
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Paiement à la Livraison
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Aucune carte bancaire requise. Payez en espèces directement au livreur lors de la réception de votre parfum.
-                </p>
+                <h4 className="font-serif font-bold text-white text-sm mb-1">Paiement à la Livraison</h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">Aucune carte bancaire requise. Payez en espèces au livreur.</p>
               </div>
             </div>
           </div>
@@ -2008,22 +1769,15 @@ export default function App() {
 
       <section className="py-12 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
-          <span className="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold">
-            Questions Fréquentes
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">
-            Tout savoir sur vos commandes chez Aladin Parfums
-          </h2>
+          <span className="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold">Questions Fréquentes</span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">Tout savoir sur vos commandes chez Aladin Parfums</h2>
         </div>
 
         <div className="space-y-3">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = openFaqIndex === i;
             return (
-              <div
-                key={i}
-                className="rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden"
-              >
+              <div key={i} className="rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden">
                 <button
                   onClick={() => setOpenFaqIndex(isOpen ? -1 : i)}
                   className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-zinc-900 transition"
@@ -2032,17 +1786,9 @@ export default function App() {
                     <HelpCircle className="w-4 h-4 text-amber-400 shrink-0" />
                     {item.q}
                   </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-amber-400 transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
+                  <ChevronDown className={`w-4 h-4 text-amber-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                 </button>
-                {isOpen && (
-                  <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60">
-                    {item.a}
-                  </div>
-                )}
+                {isOpen && <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60">{item.a}</div>}
               </div>
             );
           })}
@@ -2055,89 +1801,48 @@ export default function App() {
             <div className="flex items-center gap-3">
               <AladinRoyalCrest size="sm" />
               <div>
-                <span className="block text-base font-serif font-bold text-amber-400 tracking-wider">
-                  ALADIN
-                </span>
-                <span className="block text-[10px] uppercase tracking-widest text-zinc-400">
-                  Parfums de Luxe • L'Élixir d'Orient
-                </span>
+                <span className="block text-base font-serif font-bold text-amber-400 tracking-wider">ALADIN</span>
+                <span className="block text-[10px] uppercase tracking-widest text-zinc-400">Parfums de Luxe • L'Élixir d'Orient</span>
               </div>
             </div>
-            <p className="text-zinc-400 leading-relaxed">
-              Votre destination N°1 en Tunisie pour les parfums orientaux et de niche : Lattafa, Afnan, Zimaya, French Avenue, Armaf et Maison Alhambra.
-            </p>
-            <div className="pt-1 text-amber-400 font-semibold">
-              📞 Aladin Direct & WhatsApp : {STORE_PHONE_DISPLAY}
-            </div>
+            <p className="text-zinc-400 leading-relaxed">Votre destination N°1 en Tunisie pour les parfums orientaux et de niche.</p>
+            <div className="pt-1 text-amber-400 font-semibold">📞 Aladin Direct & WhatsApp : {STORE_PHONE_DISPLAY}</div>
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3">
-              Service Client
-            </h4>
+            <h4 className="font-bold text-white uppercase tracking-wider mb-3">Service Client</h4>
             <ul className="space-y-2">
               <li>
-                <button
-                  onClick={() => {
-                    setSelectedCategory("Best-Sellers");
-                    scrollToCatalog();
-                  }}
-                  className="hover:text-amber-400 transition"
-                >
+                <button onClick={() => { setSelectedCategory("Best-Sellers"); scrollToCatalog(); }} className="hover:text-amber-400 transition">
                   Nos Best-Sellers
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => {
-                    setSelectedCategory("Nouveautés");
-                    scrollToCatalog();
-                  }}
-                  className="hover:text-amber-400 transition"
-                >
+                <button onClick={() => { setSelectedCategory("Nouveautés"); scrollToCatalog(); }} className="hover:text-amber-400 transition">
                   Nouveautés 2026
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => setIsWholesaleModalOpen(true)}
-                  className="hover:text-amber-400 transition"
-                >
+                <button onClick={() => setIsWholesaleModalOpen(true)} className="hover:text-amber-400 transition">
                   Espace Revendeurs / Vente en Gros
                 </button>
-              </li>
-              <li>
-                <a
-                  href={`https://wa.me/${STORE_WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-400 transition flex items-center gap-1"
-                >
-                  Assistance WhatsApp Directe
-                </a>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3">
-              Livraison en Tunisie
-            </h4>
-            <p className="leading-relaxed mb-3">
-              Livraison rapide à domicile dans les 24 gouvernorats (Grand Tunis, Sousse, Sfax, Nabeul, Monastir, Bizerte...).
-            </p>
+            <h4 className="font-bold text-white uppercase tracking-wider mb-3">Livraison en Tunisie</h4>
+            <p className="leading-relaxed mb-3">Livraison rapide à domicile dans les 24 gouvernorats.</p>
             <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300">
-              <div>• Frais de livraison fixes : <strong className="text-amber-400">8.000 DT</strong></div>
-              <div>• Livraison gratuite dès <strong className="text-amber-400">250 DT</strong></div>
+              <div>• Frais fixes : <strong className="text-amber-400">8.000 DT</strong></div>
+              <div>• Gratuite dès <strong className="text-amber-400">250 DT</strong></div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-zinc-900 py-4 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-zinc-500">
-            <span>
-              © 2026 ALADIN — Parfums de Luxe (L'Élixir d'Orient Tunisie). Tous droits réservés.
-            </span>
+            <span>© 2026 ALADIN — Parfums de Luxe (L'Élixir d'Orient Tunisie). Tous droits réservés.</span>
             <button
               onClick={() => {
                 setAdminTab("notifications");
@@ -2156,80 +1861,43 @@ export default function App() {
       {quickViewProduct && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl my-8">
-            <button
-              onClick={() => setQuickViewProduct(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
+            <button onClick={() => setQuickViewProduct(null)} className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
               <X className="w-5 h-5" />
             </button>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div>
-                <PerfumePhotoShowcase
-                  product={quickViewProduct}
-                  size="lg"
-                  studioTheme={studioTheme}
-                  customImageUrl={customImages[quickViewProduct.id]}
-                />
+                <PerfumePhotoShowcase product={quickViewProduct} size="lg" studioTheme={studioTheme} customImageUrl={customImages[quickViewProduct.id]} />
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                    {quickViewProduct.brand} • {quickViewProduct.concentration}
-                  </span>
-                  <h3 className="text-2xl font-serif font-bold text-white mt-0.5">
-                    {quickViewProduct.name}
-                  </h3>
+                  <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">{quickViewProduct.brand} • {quickViewProduct.concentration}</span>
+                  <h3 className="text-2xl font-serif font-bold text-white mt-0.5">{quickViewProduct.name}</h3>
                   <p className="text-xs text-zinc-400 mt-1">{quickViewProduct.inspiration}</p>
                 </div>
 
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  {quickViewProduct.description}
-                </p>
+                <p className="text-xs text-zinc-300 leading-relaxed">{quickViewProduct.description}</p>
 
                 <div className="space-y-2 text-xs bg-zinc-900/70 border border-zinc-800 rounded-2xl p-3.5">
-                  <div className="text-amber-400 font-bold uppercase tracking-wider text-[10px] mb-1">
-                    Pyramide Olfactive
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Tête :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.topNotes.join(", ")}</span>
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Cœur :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.heartNotes.join(", ")}</span>
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Fond :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.baseNotes.join(", ")}</span>
-                  </div>
+                  <div className="text-amber-400 font-bold uppercase tracking-wider text-[10px] mb-1">Pyramide Olfactive</div>
+                  <div><strong className="text-zinc-300">Notes de Tête :</strong> <span className="text-zinc-400">{quickViewProduct.topNotes.join(", ")}</span></div>
+                  <div><strong className="text-zinc-300">Notes de Cœur :</strong> <span className="text-zinc-400">{quickViewProduct.heartNotes.join(", ")}</span></div>
+                  <div><strong className="text-zinc-300">Notes de Fond :</strong> <span className="text-zinc-400">{quickViewProduct.baseNotes.join(", ")}</span></div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div>
-                    {quickViewProduct.oldPrice && (
-                      <span className="text-xs text-zinc-500 line-through mr-2">
-                        {quickViewProduct.oldPrice} DT
-                      </span>
-                    )}
-                    <span className="text-2xl font-bold text-amber-400">
-                      {quickViewProduct.price} DT
-                    </span>
+                    {quickViewProduct.oldPrice && <span className="text-xs text-zinc-500 line-through mr-2">{quickViewProduct.oldPrice} DT</span>}
+                    <span className="text-2xl font-bold text-amber-400">{quickViewProduct.price} DT</span>
                   </div>
 
                   <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5">
-                    <button
-                      onClick={() => setQuickViewQty(Math.max(1, quickViewQty - 1))}
-                      className="text-zinc-400 hover:text-white"
-                    >
+                    <button onClick={() => setQuickViewQty(Math.max(1, quickViewQty - 1))} className="text-zinc-400 hover:text-white">
                       <Minus className="w-4 h-4" />
                     </button>
                     <span className="text-sm font-bold px-2">{quickViewQty}</span>
-                    <button
-                      onClick={() => setQuickViewQty(Math.min(10, quickViewQty + 1))}
-                      className="text-zinc-400 hover:text-white"
-                    >
+                    <button onClick={() => setQuickViewQty(Math.min(10, quickViewQty + 1))} className="text-zinc-400 hover:text-white">
                       <Plus className="w-4 h-4" />
                     </button>
                   </div>
@@ -2266,14 +1934,9 @@ export default function App() {
               <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
                 <div className="flex items-center gap-2.5">
                   <Heart className="w-5 h-5 text-amber-400" />
-                  <h3 className="font-serif font-bold text-lg text-white">
-                    Mes Parfums Favoris {wishlist.length > 0 && `(${wishlist.length})`}
-                  </h3>
+                  <h3 className="font-serif font-bold text-lg text-white">Mes Parfums Favoris {wishlist.length > 0 && `(${wishlist.length})`}</h3>
                 </div>
-                <button
-                  onClick={() => setIsWishlistOpen(false)}
-                  className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-                >
+                <button onClick={() => setIsWishlistOpen(false)} className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -2283,12 +1946,8 @@ export default function App() {
                   <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/15 to-amber-900/10 border border-amber-500/30 flex items-center justify-center mb-4 shadow-inner">
                     <Heart className="w-9 h-9 text-amber-400/80 stroke-[1.5]" />
                   </div>
-                  <h4 className="font-serif font-bold text-lg text-white mb-1.5">
-                    Votre liste de favoris est vide
-                  </h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">
-                    Cliquez sur le cœur en haut des flacons pour sauvegarder vos élixirs préférés (Lattafa, French Avenue, Afnan, Zimaya...).
-                  </p>
+                  <h4 className="font-serif font-bold text-lg text-white mb-1.5">Votre liste de favoris est vide</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">Cliquez sur le cœur en haut des flacons pour sauvegarder vos élixirs préférés.</p>
                   <button
                     onClick={() => {
                       setIsWishlistOpen(false);
@@ -2297,17 +1956,13 @@ export default function App() {
                     }}
                     className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-xs hover:brightness-110 transition shadow-lg shadow-amber-500/20 flex items-center gap-2"
                   >
-                    <Sparkles className="w-4 h-4" />
-                    Découvrir nos Best-Sellers
+                    <Sparkles className="w-4 h-4" /> Découvrir nos Best-Sellers
                   </button>
                 </div>
               ) : (
                 <div className="space-y-3 overflow-y-auto pr-1 my-4 flex-1">
                   {PERFUMES_DATA.filter((p) => wishlist.includes(p.id)).map((product) => (
-                    <div
-                      key={product.id}
-                      className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 transition"
-                    >
+                    <div key={product.id} className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 transition">
                       <div
                         onClick={() => {
                           setIsWishlistOpen(false);
@@ -2317,23 +1972,12 @@ export default function App() {
                         className="flex items-center gap-3 cursor-pointer flex-1 min-w-0"
                       >
                         <div className="shrink-0">
-                          <PerfumePhotoShowcase
-                            product={product}
-                            size="sm"
-                            studioTheme={studioTheme}
-                            customImageUrl={customImages[product.id]}
-                          />
+                          <PerfumePhotoShowcase product={product} size="sm" studioTheme={studioTheme} customImageUrl={customImages[product.id]} />
                         </div>
                         <div className="min-w-0">
-                          <div className="text-[10px] text-amber-400 font-bold uppercase">
-                            {product.brand}
-                          </div>
-                          <div className="text-sm font-bold text-white truncate">
-                            {product.name}
-                          </div>
-                          <div className="text-xs text-amber-300 font-semibold">
-                            {product.price} DT
-                          </div>
+                          <div className="text-[10px] text-amber-400 font-bold uppercase">{product.brand}</div>
+                          <div className="text-sm font-bold text-white truncate">{product.name}</div>
+                          <div className="text-xs text-amber-300 font-semibold">{product.price} DT</div>
                         </div>
                       </div>
 
@@ -2348,11 +1992,7 @@ export default function App() {
                         >
                           <Plus className="w-3.5 h-3.5" /> Panier
                         </button>
-                        <button
-                          onClick={() => toggleWishlist(product.id)}
-                          className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-rose-400 transition"
-                          title="Retirer des favoris"
-                        >
+                        <button onClick={() => toggleWishlist(product.id)} className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-rose-400 transition" title="Retirer des favoris">
                           <Trash2 className="w-4 h-4" />
                         </button>
                       </div>
@@ -2366,9 +2006,7 @@ export default function App() {
               <div className="pt-4 border-t border-zinc-800">
                 <button
                   onClick={() => {
-                    PERFUMES_DATA.filter((p) => wishlist.includes(p.id)).forEach((prod) =>
-                      addToCart(prod, 1)
-                    );
+                    PERFUMES_DATA.filter((p) => wishlist.includes(p.id)).forEach((prod) => addToCart(prod, 1));
                     setIsWishlistOpen(false);
                     setIsCartOpen(true);
                   }}
@@ -2389,14 +2027,9 @@ export default function App() {
               <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
                 <div className="flex items-center gap-2">
                   <ShoppingBag className="w-5 h-5 text-amber-400" />
-                  <h3 className="font-serif font-bold text-lg text-white">
-                    Votre Panier {cartTotalItems > 0 && `(${cartTotalItems})`}
-                  </h3>
+                  <h3 className="font-serif font-bold text-lg text-white">Votre Panier {cartTotalItems > 0 && `(${cartTotalItems})`}</h3>
                 </div>
-                <button
-                  onClick={() => setIsCartOpen(false)}
-                  className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-                >
+                <button onClick={() => setIsCartOpen(false)} className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
                   <X className="w-5 h-5" />
                 </button>
               </div>
@@ -2405,28 +2038,16 @@ export default function App() {
                 <div className="my-4 p-3 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs">
                   {cartSubtotal >= freeShippingThreshold ? (
                     <div className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4" />
-                      Félicitations ! Vous bénéficiez de la LIVRAISON GRATUITE.
+                      <CheckCircle2 className="w-4 h-4" /> Félicitations ! Vous bénéficiez de la LIVRAISON GRATUITE.
                     </div>
                   ) : (
                     <div>
                       <div className="flex justify-between text-zinc-300 mb-1.5">
-                        <span>
-                          Plus que{" "}
-                          <strong className="text-amber-400">
-                            {(freeShippingThreshold - cartSubtotal).toFixed(0)} DT
-                          </strong>{" "}
-                          pour la livraison gratuite !
-                        </span>
+                        <span>Plus que <strong className="text-amber-400">{(freeShippingThreshold - cartSubtotal).toFixed(0)} DT</strong> pour la livraison gratuite !</span>
                         <span>{Math.round((cartSubtotal / freeShippingThreshold) * 100)}%</span>
                       </div>
                       <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-amber-400 transition-all"
-                          style={{
-                            width: `${Math.min(100, (cartSubtotal / freeShippingThreshold) * 100)}%`
-                          }}
-                        />
+                        <div className="h-full bg-amber-400 transition-all" style={{ width: `${Math.min(100, (cartSubtotal / freeShippingThreshold) * 100)}%` }} />
                       </div>
                     </div>
                   )}
@@ -2436,52 +2057,15 @@ export default function App() {
               {cart.length === 0 ? (
                 <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-10">
                   <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/15 via-zinc-900 to-amber-900/15 border border-amber-500/30 flex items-center justify-center mb-5 shadow-inner">
-                    <svg
-                      viewBox="0 0 64 64"
-                      className="w-12 h-12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        x="25"
-                        y="8"
-                        width="14"
-                        height="6"
-                        rx="1.5"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                      />
-                      <rect
-                        x="28"
-                        y="14"
-                        width="8"
-                        height="5"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M16 27C16 22.5817 19.5817 19 24 19H40C44.4183 19 48 22.5817 48 27V49C48 52.866 44.866 56 41 56H23C19.134 56 16 52.866 16 49V27Z"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                        fill="rgba(212,175,55,0.08)"
-                      />
-                      <rect
-                        x="22"
-                        y="30"
-                        width="20"
-                        height="14"
-                        rx="2"
-                        stroke="#FBBF24"
-                        strokeWidth="1.5"
-                      />
+                    <svg viewBox="0 0 64 64" className="w-12 h-12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="25" y="8" width="14" height="6" rx="1.5" stroke="#FBBF24" strokeWidth="2" />
+                      <rect x="28" y="14" width="8" height="5" stroke="#FBBF24" strokeWidth="2" />
+                      <path d="M16 27C16 22.5817 19.5817 19 24 19H40C44.4183 19 48 22.5817 48 27V49C48 52.866 44.866 56 41 56H23C19.134 56 16 52.866 16 49V27Z" stroke="#FBBF24" strokeWidth="2" fill="rgba(212,175,55,0.08)" />
+                      <rect x="22" y="30" width="20" height="14" rx="2" stroke="#FBBF24" strokeWidth="1.5" />
                     </svg>
                   </div>
-                  <h4 className="font-serif font-bold text-xl text-white mb-2">
-                    Votre panier est vide
-                  </h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">
-                    Explorez la collection <strong className="text-amber-300">ALADIN Parfums</strong> et laissez-vous séduire par nos fragrances orientales authentiques livrées chez vous en 24h/48h.
-                  </p>
+                  <h4 className="font-serif font-bold text-xl text-white mb-2">Votre panier est vide</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">Explorez la collection <strong className="text-amber-300">ALADIN Parfums</strong>.</p>
                   <button
                     onClick={() => {
                       setIsCartOpen(false);
@@ -2490,51 +2074,28 @@ export default function App() {
                     }}
                     className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-xs hover:brightness-110 transition shadow-lg shadow-amber-500/20 flex items-center gap-2"
                   >
-                    <Sparkles className="w-4 h-4" />
-                    Découvrir nos Best-Sellers
+                    <Sparkles className="w-4 h-4" /> Découvrir nos Best-Sellers
                   </button>
                 </div>
               ) : (
                 <div className="space-y-3 overflow-y-auto pr-1 flex-1">
                   {cart.map((item) => (
-                    <div
-                      key={item.product.id}
-                      className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800"
-                    >
+                    <div key={item.product.id} className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800">
                       <div className="flex items-center gap-3">
                         <div className="shrink-0">
-                          <PerfumePhotoShowcase
-                            product={item.product}
-                            size="sm"
-                            studioTheme={studioTheme}
-                            customImageUrl={customImages[item.product.id]}
-                          />
+                          <PerfumePhotoShowcase product={item.product} size="sm" studioTheme={studioTheme} customImageUrl={customImages[item.product.id]} />
                         </div>
                         <div>
-                          <div className="text-[10px] text-amber-400 font-bold uppercase">
-                            {item.product.brand}
-                          </div>
+                          <div className="text-[10px] text-amber-400 font-bold uppercase">{item.product.brand}</div>
                           <div className="text-sm font-bold text-white">{item.product.name}</div>
-                          <div className="text-xs text-zinc-400">
-                            {item.product.price} DT × {item.quantity}
-                          </div>
+                          <div className="text-xs text-zinc-400">{item.product.price} DT × {item.quantity}</div>
                         </div>
                       </div>
 
                       <div className="flex items-center gap-1.5 bg-zinc-950 border border-zinc-800 rounded-lg px-2 py-1">
-                        <button
-                          onClick={() => updateCartQty(item.product.id, -1)}
-                          className="text-zinc-400 hover:text-white p-0.5"
-                        >
-                          <Minus className="w-3.5 h-3.5" />
-                        </button>
+                        <button onClick={() => updateCartQty(item.product.id, -1)} className="text-zinc-400 hover:text-white p-0.5"><Minus className="w-3.5 h-3.5" /></button>
                         <span className="text-xs font-bold px-1.5">{item.quantity}</span>
-                        <button
-                          onClick={() => updateCartQty(item.product.id, 1)}
-                          className="text-zinc-400 hover:text-white p-0.5"
-                        >
-                          <Plus className="w-3.5 h-3.5" />
-                        </button>
+                        <button onClick={() => updateCartQty(item.product.id, 1)} className="text-zinc-400 hover:text-white p-0.5"><Plus className="w-3.5 h-3.5" /></button>
                       </div>
                     </div>
                   ))}
@@ -2551,13 +2112,7 @@ export default function App() {
                   </div>
                   <div className="flex justify-between text-zinc-400">
                     <span>Frais de livraison (Tunisie 24/48h)</span>
-                    <span>
-                      {shippingFee === 0 ? (
-                        <strong className="text-emerald-400">GRATUITE</strong>
-                      ) : (
-                        `${shippingFee.toFixed(3)} DT`
-                      )}
-                    </span>
+                    <span>{shippingFee === 0 ? <strong className="text-emerald-400">GRATUITE</strong> : `${shippingFee.toFixed(3)} DT`}</span>
                   </div>
                   <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-zinc-800">
                     <span>Total à payer à la livraison</span>
@@ -2583,112 +2138,79 @@ export default function App() {
       {isCheckoutOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
-            <button
-              onClick={() => setIsCheckoutOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
+            <button onClick={() => setIsCheckoutOpen(false)} className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3 mb-4">
               <AladinRoyalCrest size="sm" />
               <div>
-                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                  ALADIN PARFUMS • COMMANDE EXPRESS
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  Finaliser votre commande
-                </h3>
+                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">ALADIN PARFUMS • COMMANDE EXPRESS</span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">Finaliser votre commande</h3>
               </div>
             </div>
 
-            {formError && (
-              <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs">
-                {formError}
-              </div>
-            )}
+            {formError && <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs">{formError}</div>}
 
             <form onSubmit={handleCheckoutSubmit} className="space-y-3.5 text-xs sm:text-sm">
               <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Nom & Prénom complet *
-                </label>
+                <label className="block text-zinc-300 font-medium mb-1">Nom & Prénom complet *</label>
                 <input
                   type="text"
                   required
                   placeholder="Ex: Amine Ben Salem"
                   value={checkoutForm.fullName}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, fullName: e.target.value })
-                  }
+                  onChange={(e) => setCheckoutForm({ ...checkoutForm, fullName: e.target.value })}
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-zinc-300 font-medium mb-1">
-                    Téléphone (8 chiffres) *
-                  </label>
+                  <label className="block text-zinc-300 font-medium mb-1">Téléphone (8 chiffres) *</label>
                   <input
                     type="tel"
                     required
                     placeholder="Ex: 94318153"
                     value={checkoutForm.phone}
-                    onChange={(e) =>
-                      setCheckoutForm({ ...checkoutForm, phone: e.target.value })
-                    }
+                    onChange={(e) => setCheckoutForm({ ...checkoutForm, phone: e.target.value })}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-zinc-300 font-medium mb-1">
-                    Gouvernorat *
-                  </label>
+                  <label className="block text-zinc-300 font-medium mb-1">Gouvernorat *</label>
                   <select
                     value={checkoutForm.governorate}
-                    onChange={(e) =>
-                      setCheckoutForm({ ...checkoutForm, governorate: e.target.value })
-                    }
+                    onChange={(e) => setCheckoutForm({ ...checkoutForm, governorate: e.target.value })}
                     className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
                   >
                     {TUNISIAN_GOVERNORATES.map((gov) => (
-                      <option key={gov} value={gov}>
-                        {gov}
-                      </option>
+                      <option key={gov} value={gov}>{gov}</option>
                     ))}
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Adresse exacte de livraison (Rue, Ville, Code postal) *
-                </label>
+                <label className="block text-zinc-300 font-medium mb-1">Adresse exacte de livraison *</label>
                 <input
                   type="text"
                   required
-                  placeholder="Ex: Avenue Habib Bourguiba, Ennasr 2, Ariana"
+                  placeholder="Ex: Avenue Habib Bourguiba, Tunis"
                   value={checkoutForm.address}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, address: e.target.value })
-                  }
+                  onChange={(e) => setCheckoutForm({ ...checkoutForm, address: e.target.value })}
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
                 />
               </div>
 
               <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Note pour le livreur (Optionnel)
-                </label>
+                <label className="block text-zinc-300 font-medium mb-1">Note pour le livreur (Optionnel)</label>
                 <input
                   type="text"
-                  placeholder="Ex: Appelez-moi 30 min avant l'arrivée"
+                  placeholder="Ex: Appelez-moi avant l'arrivée"
                   value={checkoutForm.notes}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, notes: e.target.value })
-                  }
+                  onChange={(e) => setCheckoutForm({ ...checkoutForm, notes: e.target.value })}
                   className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500"
                 />
               </div>
@@ -2699,7 +2221,7 @@ export default function App() {
                   <span>{cartSubtotal.toFixed(3)} DT</span>
                 </div>
                 <div className="flex justify-between text-zinc-400">
-                  <span>Livraison Rapide ({checkoutForm.governorate})</span>
+                  <span>Livraison Rapide</span>
                   <span>{shippingFee === 0 ? "GRATUITE" : `${shippingFee.toFixed(3)} DT`}</span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-amber-400 pt-2 border-t border-zinc-800">
@@ -2714,14 +2236,8 @@ export default function App() {
                 className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 text-white font-bold text-sm hover:brightness-110 transition shadow-xl flex items-center justify-center gap-2"
               >
                 <MessageCircle className="w-5 h-5" />
-                {isSubmittingOrder
-                  ? "Envoi de la notification à Aladin..."
-                  : `Confirmer & Envoyer la Commande (${cartTotal.toFixed(0)} DT)`}
+                {isSubmittingOrder ? "Envoi de la notification..." : `Confirmer & Envoyer la Commande (${cartTotal.toFixed(0)} DT)`}
               </button>
-              <p className="text-[11px] text-center text-zinc-400">
-                En cliquant, Aladin reçoit une alerte immédiate + votre bon de commande WhatsApp sur le{" "}
-                <strong className="text-amber-300">{STORE_PHONE_DISPLAY}</strong>.
-              </p>
             </form>
           </div>
         </div>
@@ -2733,28 +2249,14 @@ export default function App() {
             <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-serif font-bold text-white">
-              Commande {orderSuccessData.ref} Enregistrée !
-            </h3>
+            <h3 className="text-2xl font-serif font-bold text-white">Commande {orderSuccessData.ref} Enregistrée !</h3>
             <p className="text-xs text-zinc-300 leading-relaxed">
-              Merci <strong className="text-white">{orderSuccessData.customer.fullName}</strong> !
-              Votre commande a été transmise à <strong className="text-amber-400">Aladin Parfums</strong>.
+              Merci <strong className="text-white">{orderSuccessData.customer.fullName}</strong> ! Votre commande a été transmise à <strong className="text-amber-400">Aladin Parfums</strong>.
             </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-1.5">
-              {orderSuccessData.notifiedChannels?.map((ch) => (
-                <span
-                  key={ch}
-                  className="px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold flex items-center gap-1"
-                >
-                  <Check className="w-3 h-3" /> Notifié via {ch}
-                </span>
-              ))}
-            </div>
 
             <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 space-y-2.5">
               <p className="text-xs text-emerald-200 font-medium">
-                📲 Cliquez ci-dessous pour envoyer/confirmer votre ticket directement sur le WhatsApp d'Aladin ({STORE_PHONE_DISPLAY}) :
+                📲 Cliquez ci-dessous pour envoyer votre ticket directement sur le WhatsApp d'Aladin ({STORE_PHONE_DISPLAY}) :
               </p>
               <a
                 href={orderSuccessData.whatsappUrl}
@@ -2762,9 +2264,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition"
               >
-                <MessageCircle className="w-4 h-4" />
-                Envoyer le Reçu sur WhatsApp ({STORE_PHONE_DISPLAY})
-                <ExternalLink className="w-3.5 h-3.5" />
+                <MessageCircle className="w-4 h-4" /> Envoyer le Reçu sur WhatsApp <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <button
@@ -2775,22 +2275,11 @@ export default function App() {
                 }}
                 className="w-full py-2 px-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs flex items-center justify-center gap-1.5 transition"
               >
-                {copiedReceipt ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" /> Reçu copié dans le presse-papiers !
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-amber-400" /> Copier le texte de la commande
-                  </>
-                )}
+                {copiedReceipt ? <><Check className="w-3.5 h-3.5 text-emerald-400" /> Reçu copié !</> : <><Copy className="w-3.5 h-3.5 text-amber-400" /> Copier le texte de la commande</>}
               </button>
             </div>
 
-            <button
-              onClick={() => setOrderSuccessData(null)}
-              className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs"
-            >
+            <button onClick={() => setOrderSuccessData(null)} className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs">
               Retour à la boutique Aladin
             </button>
           </div>
@@ -2800,96 +2289,36 @@ export default function App() {
       {isAdminModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
-            <button
-              onClick={() => {
-                setIsAdminModalOpen(false);
-                setTestAlertStatus(null);
-              }}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
+            <button onClick={() => setIsAdminModalOpen(false)} className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
               <X className="w-5 h-5" />
             </button>
 
             <div className="flex items-center gap-3 mb-5">
               <AladinRoyalCrest size="sm" />
               <div>
-                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                  ESPACE PROPRIÉTAIRE • ALADIN PARFUMS
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  Centre d'Alertes & Gestion des Commandes
-                </h3>
+                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">ESPACE PROPRIÉTAIRE • ALADIN PARFUMS</span>
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">Centre d'Alertes & Commandes</h3>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-2 border-b border-zinc-800 pb-4 mb-6">
-              <button
-                onClick={() => setAdminTab("notifications")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "notifications"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <Bell className="w-4 h-4" />
-                1. Configurer Notifications
+            <div className="flex gap-2 border-b border-zinc-800 pb-4 mb-6">
+              <button onClick={() => setAdminTab("notifications")} className={`px-4 py-2 rounded-xl text-xs font-bold ${adminTab === "notifications" ? "bg-amber-500 text-zinc-950" : "bg-zinc-900 text-zinc-300"}`}>
+                Notifications
               </button>
-              <button
-                onClick={() => setAdminTab("orders")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "orders"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <ClipboardList className="w-4 h-4" />
-                2. Commandes Reçues ({savedOrders.length})
+              <button onClick={() => setAdminTab("orders")} className={`px-4 py-2 rounded-xl text-xs font-bold ${adminTab === "orders" ? "bg-amber-500 text-zinc-950" : "bg-zinc-900 text-zinc-300"}`}>
+                Commandes ({savedOrders.length})
               </button>
-              <button
-                onClick={() => setAdminTab("photos")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "photos"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <Camera className="w-4 h-4" />
-                3. Studio Photos
+              <button onClick={() => setAdminTab("photos")} className={`px-4 py-2 rounded-xl text-xs font-bold ${adminTab === "photos" ? "bg-amber-500 text-zinc-950" : "bg-zinc-900 text-zinc-300"}`}>
+                Studio Photos
               </button>
             </div>
 
             {adminTab === "notifications" && (
-              <div className="space-y-6 text-xs">
-                {testAlertStatus && (
-                  <div className="p-3.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-200 font-medium flex items-center justify-between">
-                    <span>{testAlertStatus}</span>
-                    <button onClick={() => setTestAlertStatus(null)}>
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                )}
-
-                <div className="p-5 rounded-2xl bg-zinc-900/80 border border-emerald-500/30 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
-                        <MessageCircle className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-                          OPTION 1 • ACTIVE PAR DÉFAUT
-                        </span>
-                        <h4 className="text-sm font-bold text-white">
-                          Redirection WhatsApp (+216 94 318 153)
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleSendTestNotification("whatsapp")}
-                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 transition"
-                  >
+              <div className="space-y-4 text-xs">
+                {testAlertStatus && <div className="p-3 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-200">{testAlertStatus}</div>}
+                <div className="p-4 rounded-xl bg-zinc-900 border border-emerald-500/30 space-y-3">
+                  <h4 className="font-bold text-white text-sm">Redirection WhatsApp Active (+216 94 318 153)</h4>
+                  <button type="button" onClick={() => handleSendTestNotification("whatsapp")} className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold flex items-center gap-1.5">
                     <Send className="w-3.5 h-3.5" /> Tester WhatsApp
                   </button>
                 </div>
@@ -2897,25 +2326,18 @@ export default function App() {
             )}
 
             {adminTab === "orders" && (
-              <div className="space-y-4 text-xs">
+              <div className="space-y-3 text-xs">
                 {savedOrders.length === 0 ? (
-                  <div className="text-center py-12 bg-zinc-900/50 rounded-2xl border border-zinc-800 text-zinc-400">
-                    Aucune commande enregistrée pour le moment.
-                  </div>
+                  <div className="text-center py-8 text-zinc-400">Aucune commande pour le moment.</div>
                 ) : (
-                  <div className="space-y-3">
-                    {savedOrders.map((ord) => (
-                      <div key={ord.ref} className="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800 space-y-2">
-                        <div className="flex justify-between font-bold text-amber-400">
-                          <span>{ord.ref}</span>
-                          <span>{ord.total.toFixed(3)} DT</span>
-                        </div>
-                        <div className="text-zinc-300">
-                          <strong>Client :</strong> {ord.customer.fullName} ({ord.customer.phone}) - {ord.customer.governorate}
-                        </div>
+                  savedOrders.map((ord) => (
+                    <div key={ord.ref} className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 flex justify-between items-center">
+                      <div>
+                        <span className="font-bold text-amber-400">{ord.ref}</span> — {ord.customer.fullName} ({ord.customer.phone})
                       </div>
-                    ))}
-                  </div>
+                      <span className="font-bold text-white">{ord.total.toFixed(3)} DT</span>
+                    </div>
+                  ))
                 )}
               </div>
             )}
@@ -2923,59 +2345,27 @@ export default function App() {
             {adminTab === "photos" && (
               <div className="space-y-4 text-xs">
                 {(() => {
-                  const targetProd =
-                    PERFUMES_DATA.find((p) => p.id === Number(selectedProductForPhoto)) ||
-                    PERFUMES_DATA[0];
-
+                  const targetProd = PERFUMES_DATA.find((p) => p.id === Number(selectedProductForPhoto)) || PERFUMES_DATA[0];
                   return (
                     <>
-                      <div>
-                        <label className="block text-zinc-300 font-medium mb-1.5">
-                          Sélectionner le parfum à personnaliser :
-                        </label>
-                        <select
-                          value={selectedProductForPhoto}
-                          onChange={(e) => setSelectedProductForPhoto(Number(e.target.value))}
-                          className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                        >
-                          {PERFUMES_DATA.map((p) => (
-                            <option key={p.id} value={p.id}>
-                              {p.brand} — {p.name} ({p.price} DT)
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4">
-                        <PerfumePhotoShowcase
-                          product={targetProd}
-                          size="md"
-                          studioTheme={studioTheme}
-                          customImageUrl={customImages[targetProd.id]}
+                      <select
+                        value={selectedProductForPhoto}
+                        onChange={(e) => setSelectedProductForPhoto(Number(e.target.value))}
+                        className="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-2.5 text-white"
+                      >
+                        {PERFUMES_DATA.map((p) => (
+                          <option key={p.id} value={p.id}>{p.brand} — {p.name}</option>
+                        ))}
+                      </select>
+                      <div className="flex gap-2">
+                        <input
+                          type="url"
+                          placeholder="Coller un lien direct d'image..."
+                          value={customUrlInput}
+                          onChange={(e) => setCustomUrlInput(e.target.value)}
+                          className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl p-2 text-white"
                         />
-
-                        <div className="space-y-3">
-                          <label className="cursor-pointer w-full py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-medium flex items-center justify-center gap-2 border border-zinc-700 transition">
-                            <Upload className="w-4 h-4 text-amber-400" />
-                            Importer une photo (PC/Mobile)
-                            <input
-                              type="file"
-                              accept="image/*"
-                              onChange={handleLocalFileUpload}
-                              className="hidden"
-                            />
-                          </label>
-
-                          {customImages[targetProd.id] && (
-                            <button
-                              type="button"
-                              onClick={() => resetCustomPhoto(targetProd.id)}
-                              className="w-full py-2 px-3 rounded-xl bg-rose-500/15 text-rose-300 border border-rose-500/30 font-medium flex items-center justify-center gap-1.5"
-                            >
-                              <RotateCcw className="w-3.5 h-3.5" /> Restaurer photo officielle
-                            </button>
-                          )}
-                        </div>
+                        <button onClick={handleSaveCustomPhoto} className="px-4 py-2 bg-amber-500 text-zinc-950 font-bold rounded-xl">Appliquer</button>
                       </div>
                     </>
                   );
@@ -2988,107 +2378,38 @@ export default function App() {
 
       {isWholesaleModalOpen && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
-            <button
-              onClick={() => {
-                setIsWholesaleModalOpen(false);
-                setWholesaleSent(false);
-              }}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
+          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-md w-full p-6 relative shadow-2xl">
+            <button onClick={() => setIsWholesaleModalOpen(false)} className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white">
               <X className="w-5 h-5" />
             </button>
-
-            {wholesaleSent ? (
-              <div className="text-center space-y-4 py-4">
-                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                <h3 className="text-xl font-serif font-bold text-white">
-                  Demande Revendeur Envoyée à Aladin !
-                </h3>
-                <button
-                  onClick={() => {
-                    setIsWholesaleModalOpen(false);
-                    setWholesaleSent(false);
-                  }}
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 text-zinc-950 font-bold text-xs"
-                >
-                  Fermer
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const msg = `Bonjour Aladin Parfums ! Demande de tarif en GROS :\n• Boutique : ${wholesaleForm.shopName}\n• Tél : ${wholesaleForm.phone}\n• Quantité : ${wholesaleForm.estimatedQuantity}`;
-                  window.open(
-                    `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                  setWholesaleSent(true);
-                }}
-                className="space-y-4 text-xs"
-              >
-                <div>
-                  <span className="text-amber-400 font-bold uppercase tracking-wider">
-                    Espace Professionnel B2B • Aladin Parfums
-                  </span>
-                  <h3 className="text-xl font-serif font-bold text-white mt-1">
-                    Commande en Gros / Revendeurs
-                  </h3>
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Nom de la boutique ou société *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Ex: Parfumerie Prestige Sousse"
-                    value={wholesaleForm.shopName}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, shopName: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Téléphone / WhatsApp *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="Ex: 94 318 153"
-                    value={wholesaleForm.phone}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, phone: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Quantité estimée</label>
-                  <select
-                    value={wholesaleForm.estimatedQuantity}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, estimatedQuantity: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  >
-                    <option>12 - 30 pièces</option>
-                    <option>30 - 100 pièces</option>
-                    <option>+100 pièces (Distributeur)</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-xl bg-amber-500 text-zinc-950 font-bold text-xs"
-                >
-                  Envoyer ma demande Grossiste sur WhatsApp
-                </button>
-              </form>
-            )}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const msg = `Bonjour Aladin Parfums ! Demande de tarif en GROS :\n• Boutique : ${wholesaleForm.shopName}\n• Tél : ${wholesaleForm.phone}`;
+                window.open(`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+                setWholesaleSent(true);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <h3 className="text-lg font-serif font-bold text-white">Commande en Gros / Revendeurs</h3>
+              <input
+                type="text"
+                required
+                placeholder="Nom de la boutique"
+                value={wholesaleForm.shopName}
+                onChange={(e) => setWholesaleForm({ ...wholesaleForm, shopName: e.target.value })}
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-2.5 text-white"
+              />
+              <input
+                type="tel"
+                required
+                placeholder="Téléphone / WhatsApp"
+                value={wholesaleForm.phone}
+                onChange={(e) => setWholesaleForm({ ...wholesaleForm, phone: e.target.value })}
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-xl p-2.5 text-white"
+              />
+              <button type="submit" className="w-full py-3 rounded-xl bg-amber-500 text-zinc-950 font-bold">Envoyer sur WhatsApp</button>
+            </form>
           </div>
         </div>
       )}

@@ -77,7 +77,6 @@ const AladinRoyalCrest = ({ size = "md" }) => {
               <stop offset="100%" stopColor="#92400E" />
             </linearGradient>
           </defs>
-          {/* Outer Ornate Medallion Ring */}
           <circle
             cx="50"
             cy="50"
@@ -94,14 +93,12 @@ const AladinRoyalCrest = ({ size = "md" }) => {
             strokeWidth="1"
             opacity="0.7"
           />
-          {/* Oriental Arch Dome */}
           <path
             d="M26 66 C26 42, 38 25, 50 16 C62 25, 74 42, 74 66"
             stroke="url(#aladinGold)"
             strokeWidth="1.5"
             fill="rgba(212,175,55,0.06)"
           />
-          {/* Luxury Perfume Flacon Neck & Cap (Right Center) */}
           <rect
             x="53"
             y="29"
@@ -123,12 +120,10 @@ const AladinRoyalCrest = ({ size = "md" }) => {
             strokeWidth="1.5"
             fill="rgba(212,175,55,0.15)"
           />
-          {/* Aladin Magic Lamp Silhouette (Foreground) */}
           <path
             d="M20 56 C27 56, 32 64, 46 64 C60 64, 68 56, 79 49 C74 63, 62 71, 46 71 C33 71, 25 65, 20 56 Z"
             fill="url(#aladinGold)"
           />
-          {/* Lamp Handle & Lid */}
           <path
             d="M23 56 C17 52, 18 44, 25 46 C28 47, 28 52, 24 55"
             stroke="url(#aladinGold)"
@@ -141,21 +136,18 @@ const AladinRoyalCrest = ({ size = "md" }) => {
             strokeWidth="1.8"
             fill="#070913"
           />
-          {/* Lamp Base */}
           <path
             d="M38 74 L54 74 M42 71 L50 71"
             stroke="url(#aladinGold)"
             strokeWidth="2"
             strokeLinecap="round"
           />
-          {/* Golden Scent Swirl / Genie Mist */}
           <path
             d="M77 47 C82 39, 73 31, 69 24 C66 19, 72 14, 76 16"
             stroke="url(#aladinGold)"
             strokeWidth="1.6"
             strokeLinecap="round"
           />
-          {/* Sparkle Stars */}
           <circle cx="36" cy="36" r="1.6" fill="#FEF08A" />
           <circle cx="50" cy="24" r="1.4" fill="#FEF08A" />
         </svg>
@@ -199,7 +191,6 @@ const PerfumePhotoShowcase = ({
     <div
       className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}
     >
-      {/* Subtle Top Gold Spotlight */}
       <div
         className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-24 rounded-full blur-2xl opacity-40 pointer-events-none transition-opacity duration-500 group-hover:opacity-75"
         style={{
@@ -207,7 +198,6 @@ const PerfumePhotoShowcase = ({
         }}
       />
 
-      {/* Decorative Corner Luxury Framing */}
       {size !== 'sm' && (
         <>
           <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-amber-600/40 pointer-events-none" />
@@ -217,12 +207,10 @@ const PerfumePhotoShowcase = ({
         </>
       )}
 
-      {/* Subtle Pedestal Floor Reflection */}
       {size !== 'sm' && (
         <div className="absolute bottom-3 w-2/3 h-3 rounded-full bg-amber-950/10 blur-md pointer-events-none group-hover:scale-110 transition-transform duration-500" />
       )}
 
-      {/* Official Perfume Bottle Image */}
       {!imgError && activeImage ? (
         <img
           src={activeImage}
@@ -243,7 +231,6 @@ const PerfumePhotoShowcase = ({
         </div>
       )}
 
-      {/* Authentic Seal Watermark on Large View */}
       {size === 'lg' && (
         <div className="absolute bottom-2.5 right-3 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-950/85 text-amber-300 text-[10px] font-bold tracking-wider uppercase shadow">
           <ShieldCheck className="w-3 h-3 text-amber-400" />
@@ -803,7 +790,6 @@ const FAQ_ITEMS = [
   }
 ];
 
-// --- HELPER: FORMAT CLEAN WHATSAPP & TEXT ORDER RECEIPT ---
 const buildFormattedOrderReceipt = (order) => {
   const itemsLines = order.items
     .map(
@@ -844,7 +830,6 @@ const buildFormattedOrderReceipt = (order) => {
 };
 
 export default function App() {
-  // Navigation & Filtering State
   const [selectedBrand, setSelectedBrand] = useState("Toutes");
   const [selectedGender, setSelectedGender] = useState("Tous");
   const [selectedCategory, setSelectedCategory] = useState("Tous");
@@ -854,24 +839,19 @@ export default function App() {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  // Studio Pedestal Theme & Custom Image Overrides
   const [studioTheme, setStudioTheme] = useState("ivory");
   const [customImages, setCustomImages] = useState({});
   const [selectedProductForPhoto, setSelectedProductForPhoto] = useState(PERFUMES_DATA[0].id);
   const [customUrlInput, setCustomUrlInput] = useState("");
 
-  // Admin Hub Modal State (Tabs: 'notifications' | 'orders' | 'photos')
   const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
   const [adminTab, setAdminTab] = useState("notifications");
 
-  // Option 1 & Option 3 Notification Settings (Persisted in localStorage)
   const [notificationConfig, setNotificationConfig] = useState(() => {
     try {
       const saved = localStorage.getItem("aladin_notif_config");
       if (saved) return JSON.parse(saved);
-    } catch (e) {
-      // ignore storage errors
-    }
+    } catch (e) {}
     return {
       whatsappAutoRedirect: true,
       whatsappNumber: STORE_WHATSAPP_NUMBER,
@@ -884,40 +864,31 @@ export default function App() {
     };
   });
 
-  // Saved Orders Log (Persisted in localStorage so Aladin can view all orders)
   const [savedOrders, setSavedOrders] = useState(() => {
     try {
       const saved = localStorage.getItem("aladin_orders_log");
       if (saved) return JSON.parse(saved);
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
     return [];
   });
 
   useEffect(() => {
     try {
       localStorage.setItem("aladin_notif_config", JSON.stringify(notificationConfig));
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
   }, [notificationConfig]);
 
   useEffect(() => {
     try {
       localStorage.setItem("aladin_orders_log", JSON.stringify(savedOrders));
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
   }, [savedOrders]);
 
-  // Cart & Wishlist State (Fresh & Empty for New Visitors)
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
-  // Modals State
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [quickViewQty, setQuickViewQty] = useState(1);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -929,7 +900,6 @@ export default function App() {
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
   const [testAlertStatus, setTestAlertStatus] = useState(null);
 
-  // Tunisian COD Checkout Form State
   const [checkoutForm, setCheckoutForm] = useState({
     fullName: "",
     phone: "",
@@ -940,7 +910,6 @@ export default function App() {
   });
   const [formError, setFormError] = useState("");
 
-  // Wholesale Inquiry Form State
   const [wholesaleForm, setWholesaleForm] = useState({
     shopName: "",
     phone: "",
@@ -949,7 +918,6 @@ export default function App() {
   });
   const [wholesaleSent, setWholesaleSent] = useState(false);
 
-  // Auto-advance Hero Carousel
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHeroSlide((prev) => (prev + 1) % HERO_SLIDES.length);
@@ -957,7 +925,6 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // Toast helper
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => {
@@ -965,7 +932,6 @@ export default function App() {
     }, 3400);
   };
 
-  // Filtered and Sorted Products
   const filteredProducts = useMemo(() => {
     return PERFUMES_DATA.filter((item) => {
       const matchesBrand = selectedBrand === "Toutes" || item.brand === selectedBrand;
@@ -1003,14 +969,12 @@ export default function App() {
     });
   }, [selectedBrand, selectedGender, selectedCategory, selectedNoteFilter, searchQuery, sortBy]);
 
-  // Cart Calculations (in Tunisian Dinar - DT)
   const cartTotalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const cartSubtotal = cart.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
   const freeShippingThreshold = 250;
   const shippingFee = cartSubtotal === 0 ? 0 : cartSubtotal >= freeShippingThreshold ? 0 : 8;
   const cartTotal = cartSubtotal + shippingFee;
 
-  // Cart Actions
   const addToCart = (product, qty = 1) => {
     setCart((prev) => {
       const existing = prev.find((item) => item.product.id === product.id);
@@ -1062,12 +1026,10 @@ export default function App() {
     setIsCheckoutOpen(true);
   };
 
-  // --- OPTION 3: SILENT BACKGROUND NOTIFICATIONS (TELEGRAM BOT + EMAIL / WEBHOOK) ---
   const triggerBackgroundNotifications = async (orderPayload) => {
     const channelsSent = [];
     const plainReceipt = buildFormattedOrderReceipt(orderPayload);
 
-    // 3A. Telegram Bot API Instant Push Notification
     if (
       notificationConfig.enableTelegramAlert &&
       notificationConfig.telegramBotToken.trim() &&
@@ -1085,12 +1047,9 @@ export default function App() {
           })
         });
         if (res.ok) channelsSent.push("Telegram");
-      } catch (err) {
-        // Silent catch so customer checkout never breaks
-      }
+      } catch (err) {}
     }
 
-    // 3B. Automated Email Alert via FormSubmit.co Zero-Config AJAX or Custom Webhook (Formspree / Make)
     if (notificationConfig.enableEmailAlert) {
       const itemsSummary = orderPayload.items
         .map((i) => `${i.quantity}x ${i.product.brand} ${i.product.name} (${i.product.price * i.quantity} DT)`)
@@ -1120,9 +1079,7 @@ export default function App() {
             })
           });
           if (res.ok) channelsSent.push("Email");
-        } catch (err) {
-          // ignore
-        }
+        } catch (err) {}
       }
 
       if (notificationConfig.customWebhookUrl.trim()) {
@@ -1137,16 +1094,13 @@ export default function App() {
             })
           });
           if (res.ok) channelsSent.push("Webhook");
-        } catch (err) {
-          // ignore
-        }
+        } catch (err) {}
       }
     }
 
     return channelsSent;
   };
 
-  // --- CHECKOUT SUBMIT: COMBINES OPTION 1 (WHATSAPP REDIRECT) + OPTION 3 (SILENT PUSH) ---
   const handleCheckoutSubmit = async (e) => {
     e.preventDefault();
     setFormError("");
@@ -1195,13 +1149,11 @@ export default function App() {
     );
     const whatsappUrl = `https://wa.me/${whatsappTarget}?text=${encodeURIComponent(receiptText)}`;
 
-    // Option 3: Fire silent background notifications (Telegram + Email/Webhook)
     const bgChannels = await triggerBackgroundNotifications(newOrder);
     newOrder.notifiedChannels = Array.from(new Set(["WhatsApp", ...bgChannels]));
     newOrder.whatsappUrl = whatsappUrl;
     newOrder.receiptText = receiptText;
 
-    // Save to Admin Local Order Journal
     setSavedOrders((prev) => [newOrder, ...prev]);
 
     setIsSubmittingOrder(false);
@@ -1209,13 +1161,11 @@ export default function App() {
     setCart([]);
     setIsCheckoutOpen(false);
 
-    // Option 1: Instant WhatsApp Order Redirection to Aladin (+216 94 318 153)
     if (notificationConfig.whatsappAutoRedirect) {
       window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     }
   };
 
-  // --- TEST NOTIFICATION BUTTON IN ADMIN PANEL ---
   const handleSendTestNotification = async (channelType) => {
     setTestAlertStatus("Envoi du test en cours...");
     const sampleOrder = {
@@ -1257,7 +1207,6 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
-  // Handle Custom Photo URL or Local File Upload
   const handleSaveCustomPhoto = (e) => {
     e.preventDefault();
     if (!customUrlInput.trim()) return;
@@ -1296,7 +1245,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#09090b] text-zinc-100 font-sans selection:bg-amber-500 selection:text-black">
-      {/* Floating Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-zinc-900 border border-amber-500/60 text-amber-100 px-5 py-3.5 rounded-xl shadow-2xl animate-bounce">
           <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0" />
@@ -1304,7 +1252,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Floating WhatsApp Direct Button (Bottom Left) */}
       <a
         href={`https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(
           "Bonjour Aladin Parfums ! Je souhaite avoir un conseil sur vos parfums."
@@ -1320,7 +1267,6 @@ export default function App() {
         </span>
       </a>
 
-      {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="bg-gradient-to-r from-amber-950/90 via-zinc-900 to-amber-950/90 border-b border-amber-500/20 text-xs sm:text-sm py-2.5 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-amber-200/95 font-medium mx-auto sm:mx-0">
@@ -1355,11 +1301,9 @@ export default function App() {
         </div>
       </div>
 
-      {/* 2. STICKY LUXURY HEADER WITH ALADIN ROYAL EMBLEM */}
       <header className="sticky top-0 z-40 bg-[#09090b]/95 backdrop-blur-md border-b border-zinc-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5">
           <div className="flex items-center justify-between gap-4">
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-amber-400"
@@ -1368,7 +1312,6 @@ export default function App() {
               <Menu className="w-6 h-6" />
             </button>
 
-            {/* ALADIN Brand Logo Crest */}
             <div
               onClick={() => {
                 setSelectedBrand("Toutes");
@@ -1395,7 +1338,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Instant Search Bar */}
             <div className="hidden md:flex flex-1 max-w-md mx-4">
               <div className="relative w-full">
                 <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -1417,9 +1359,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Action Icons */}
             <div className="flex items-center gap-2 sm:gap-2.5">
-              {/* Wishlist Drawer Trigger */}
               <button
                 onClick={() => setIsWishlistOpen(true)}
                 className="relative p-2.5 rounded-full bg-zinc-900 border border-zinc-800 hover:border-amber-500/50 text-zinc-300 hover:text-amber-400 transition"
@@ -1437,7 +1377,6 @@ export default function App() {
                 )}
               </button>
 
-              {/* Cart Trigger Button */}
               <button
                 onClick={() => setIsCartOpen(true)}
                 className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-zinc-950 font-semibold text-sm hover:from-amber-400 hover:to-amber-500 transition shadow-lg shadow-amber-500/20"
@@ -1457,7 +1396,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mobile Search Bar */}
           <div className="mt-3 md:hidden">
             <div className="relative w-full">
               <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -1471,7 +1409,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Desktop Category Navigation Links */}
           <nav className="hidden lg:flex items-center justify-between pt-3 mt-3 border-t border-zinc-800/60 text-sm">
             <div className="flex items-center gap-6">
               {[
@@ -1516,7 +1453,6 @@ export default function App() {
           </nav>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden bg-zinc-950 border-b border-zinc-800 px-4 py-4 space-y-3">
             <div className="grid grid-cols-2 gap-2">
@@ -1556,7 +1492,6 @@ export default function App() {
         )}
       </header>
 
-      {/* 3. HERO BANNER CAROUSEL */}
       <section className="relative overflow-hidden border-b border-zinc-800/80 bg-gradient-to-b from-zinc-950 via-[#100e0b] to-zinc-950">
         <div
           className="absolute inset-0 opacity-15 pointer-events-none"
@@ -1576,7 +1511,6 @@ export default function App() {
                 key={slide.id}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
               >
-                {/* Left Column: Luxury Copywriting */}
                 <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold tracking-wider uppercase">
                     <Sparkles className="w-3.5 h-3.5" />
@@ -1584,1608 +1518,3 @@ export default function App() {
                   </div>
 
                   <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white leading-[1.15]">
-                    {slide.title}
-                  </h1>
-
-                  <p className="text-zinc-300 text-sm sm:text-base max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    {slide.subtitle}
-                  </p>
-
-                  <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
-                    <button
-                      onClick={scrollToCatalog}
-                      className="px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-sm hover:brightness-110 transition shadow-xl shadow-amber-500/20 flex items-center gap-2"
-                    >
-                      {slide.ctaPrimary}
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-
-                    <button
-                      onClick={() => {
-                        setQuickViewProduct(featuredPerfume);
-                        setQuickViewQty(1);
-                      }}
-                      className="px-6 py-3.5 rounded-full bg-zinc-900/90 hover:bg-zinc-800 border border-amber-500/40 text-amber-200 font-semibold text-sm transition"
-                    >
-                      Découvrir {featuredPerfume.name} ({featuredPerfume.price} DT)
-                    </button>
-                  </div>
-
-                  {/* Key Trust Highlights */}
-                  <div className="pt-4 grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 border-t border-zinc-800/80 text-left">
-                    <div>
-                      <span className="block text-amber-400 font-bold text-sm sm:text-base">100% Original</span>
-                      <span className="text-[11px] text-zinc-400">Importé de Dubaï (EAU)</span>
-                    </div>
-                    <div>
-                      <span className="block text-amber-400 font-bold text-sm sm:text-base">Livraison 24/48h</span>
-                      <span className="text-[11px] text-zinc-400">Partout en Tunisie (8 DT)</span>
-                    </div>
-                    <div>
-                      <span className="block text-amber-400 font-bold text-sm sm:text-base">Confirmation Directe</span>
-                      <span className="text-[11px] text-zinc-400">WhatsApp & Notification</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Column: Spotlight Perfume Card */}
-                <div className="lg:col-span-5">
-                  <div className="relative mx-auto max-w-sm bg-gradient-to-b from-zinc-900/90 to-zinc-950 border border-amber-500/30 rounded-3xl p-6 shadow-2xl">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold">
-                        ★ SÉLECTION ALADIN
-                      </span>
-                      <span className="text-xs text-zinc-400 font-medium">
-                        {featuredPerfume.volume} • {featuredPerfume.concentration}
-                      </span>
-                    </div>
-
-                    <div
-                      onClick={() => {
-                        setQuickViewProduct(featuredPerfume);
-                        setQuickViewQty(1);
-                      }}
-                      className="cursor-pointer py-2 group"
-                    >
-                      <PerfumePhotoShowcase
-                        product={featuredPerfume}
-                        size="lg"
-                        studioTheme={studioTheme}
-                        customImageUrl={customImages[featuredPerfume.id]}
-                      />
-                    </div>
-
-                    <div className="text-center mt-3 space-y-2">
-                      <div className="text-xs uppercase tracking-widest text-amber-400 font-semibold">
-                        {featuredPerfume.brand}
-                      </div>
-                      <h3 className="text-xl font-serif font-bold text-white">
-                        {featuredPerfume.name}
-                      </h3>
-                      <p className="text-xs text-zinc-400 line-clamp-2">
-                        {featuredPerfume.inspiration}
-                      </p>
-
-                      <div className="pt-3 flex items-center justify-between border-t border-zinc-800/80">
-                        <div className="text-left">
-                          {featuredPerfume.oldPrice && (
-                            <span className="text-xs text-zinc-500 line-through mr-2">
-                              {featuredPerfume.oldPrice} DT
-                            </span>
-                          )}
-                          <span className="text-2xl font-bold text-amber-400">
-                            {featuredPerfume.price} DT
-                          </span>
-                        </div>
-                        <button
-                          onClick={() => addToCart(featuredPerfume, 1)}
-                          className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs transition flex items-center gap-1.5"
-                        >
-                          <ShoppingBag className="w-4 h-4" />
-                          Ajouter au panier
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Slide Indicators */}
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {HERO_SLIDES.map((s, idx) => (
-              <button
-                key={s.id}
-                onClick={() => setCurrentHeroSlide(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  currentHeroSlide === idx ? "w-8 bg-amber-400" : "w-2 bg-zinc-700 hover:bg-zinc-500"
-                }`}
-                aria-label={`Slide ${idx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. INTERACTIVE BRAND SHOWCASE BAR */}
-      <section className="py-8 bg-zinc-950/60 border-b border-zinc-800/70">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h2 className="text-sm uppercase tracking-[0.2em] text-amber-400 font-semibold">
-                Nos Maisons de Parfumerie
-              </h2>
-              <p className="text-xs text-zinc-400">
-                Cliquez sur une marque pour filtrer les parfums disponibles chez Aladin Parfums
-              </p>
-            </div>
-            {selectedBrand !== "Toutes" && (
-              <button
-                onClick={() => setSelectedBrand("Toutes")}
-                className="text-xs text-amber-400 hover:underline flex items-center gap-1"
-              >
-                Afficher toutes les marques <X className="w-3.5 h-3.5" />
-              </button>
-            )}
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-            {BRANDS.map((b) => {
-              const isSelected = selectedBrand === b.name;
-              return (
-                <button
-                  key={b.name}
-                  onClick={() => {
-                    setSelectedBrand(b.name);
-                    scrollToCatalog();
-                  }}
-                  className={`p-3.5 rounded-2xl border text-left transition-all flex flex-col justify-between ${
-                    isSelected
-                      ? "bg-gradient-to-br from-amber-500/20 to-amber-900/20 border-amber-400 shadow-lg shadow-amber-500/10"
-                      : "bg-zinc-900/70 border-zinc-800/90 hover:border-zinc-700"
-                  }`}
-                >
-                  <div className="flex items-center justify-between w-full mb-1">
-                    <span
-                      className={`font-serif font-bold text-sm ${
-                        isSelected ? "text-amber-300" : "text-white"
-                      }`}
-                    >
-                      {b.name}
-                    </span>
-                    <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-zinc-800 text-zinc-400">
-                      {b.count}
-                    </span>
-                  </div>
-                  <span className="text-[11px] text-zinc-400 truncate w-full">{b.tagline}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. MAIN CATALOG & OLFACTORY FILTERING SECTION */}
-      <section id="catalog-section" className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="bg-zinc-900/70 border border-zinc-800 rounded-2xl p-4 sm:p-5 mb-8 space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            {/* Gender Filter Tabs */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-zinc-400 mr-2 flex items-center gap-1">
-                <SlidersHorizontal className="w-3.5 h-3.5 text-amber-400" /> Genre :
-              </span>
-              {["Tous", "Homme", "Femme", "Unisexe"].map((g) => (
-                <button
-                  key={g}
-                  onClick={() => setSelectedGender(g)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition ${
-                    selectedGender === g
-                      ? "bg-amber-500 text-zinc-950 shadow"
-                      : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
-                  }`}
-                >
-                  {g}
-                </button>
-              ))}
-            </div>
-
-            {/* Olfactory Note Quick Filter */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-zinc-400 mr-1">Notes Olfactives :</span>
-              {["Toutes", "Vanille", "Gourmand", "Boisé", "Café", "Fruité", "Épicé"].map((note) => (
-                <button
-                  key={note}
-                  onClick={() => setSelectedNoteFilter(note)}
-                  className={`px-3 py-1 rounded-full text-xs transition border ${
-                    selectedNoteFilter === note
-                      ? "bg-amber-500/20 border-amber-400 text-amber-300 font-semibold"
-                      : "bg-zinc-950/70 border-zinc-800 text-zinc-400 hover:text-zinc-200"
-                  }`}
-                >
-                  {note}
-                </button>
-              ))}
-            </div>
-
-            {/* Sort Dropdown */}
-            <div className="flex items-center gap-2 ml-auto">
-              <label className="text-xs text-zinc-400">Trier par :</label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-zinc-950 border border-zinc-800 rounded-xl px-3 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-amber-500"
-              >
-                <option value="popular">Plus Populaires</option>
-                <option value="price-asc">Prix : Croissant</option>
-                <option value="price-desc">Prix : Décroissant</option>
-                <option value="rating">Meilleures Notes</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Active Filter Summary Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-zinc-800/80 text-xs text-zinc-400">
-            <div>
-              Affichage de <strong className="text-white">{filteredProducts.length}</strong> parfum(s) chez{" "}
-              <strong className="text-amber-400">Aladin Parfums</strong>
-              {selectedBrand !== "Toutes" && (
-                <span>
-                  {" "}
-                  • Marque : <strong className="text-amber-400">{selectedBrand}</strong>
-                </span>
-              )}
-            </div>
-
-            {/* Studio Pedestal Lighting Switcher */}
-            <div className="flex items-center gap-2">
-              <span className="text-[11px] text-zinc-400 hidden sm:inline">Éclairage Studio :</span>
-              {[
-                { id: "ivory", label: "Ivoire Chaud" },
-                { id: "gold", label: "Or Impérial" },
-                { id: "pure", label: "Blanc Pur" }
-              ].map((mode) => (
-                <button
-                  key={mode.id}
-                  onClick={() => setStudioTheme(mode.id)}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium border transition ${
-                    studioTheme === mode.id
-                      ? "bg-amber-500/20 border-amber-400 text-amber-300"
-                      : "bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-white"
-                  }`}
-                >
-                  {mode.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Product Grid */}
-        {filteredProducts.length === 0 ? (
-          <div className="text-center py-16 bg-zinc-900/40 rounded-3xl border border-zinc-800 p-8">
-            <Sparkles className="w-10 h-10 text-amber-400 mx-auto mb-3 opacity-80" />
-            <h3 className="text-lg font-serif font-bold text-white mb-1">
-              Aucun parfum ne correspond à votre recherche
-            </h3>
-            <p className="text-sm text-zinc-400 mb-5">
-              Essayez de modifier vos filtres ou recherchez une autre note (ex: Vanille, Ambre, Lattafa).
-            </p>
-            <button
-              onClick={() => {
-                setSelectedBrand("Toutes");
-                setSelectedGender("Tous");
-                setSelectedCategory("Tous");
-                setSelectedNoteFilter("Toutes");
-                setSearchQuery("");
-              }}
-              className="px-5 py-2.5 rounded-full bg-amber-500 text-zinc-950 font-bold text-xs"
-            >
-              Voir toute la collection
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => {
-              const isWishlisted = wishlist.includes(product.id);
-              const discountPercent = product.oldPrice
-                ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
-                : null;
-
-              return (
-                <div
-                  key={product.id}
-                  className="group bg-gradient-to-b from-zinc-900/90 to-zinc-950 border border-zinc-800/90 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/5 relative"
-                >
-                  {/* Top Badges & Wishlist */}
-                  <div className="flex items-start justify-between gap-2 z-10 mb-3">
-                    <div className="flex flex-wrap gap-1.5">
-                      {product.isBestSeller && (
-                        <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[10px] font-bold uppercase tracking-wider">
-                          ★ Best-Seller
-                        </span>
-                      )}
-                      {product.isNew && (
-                        <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
-                          Nouveau
-                        </span>
-                      )}
-                      {discountPercent && (
-                        <span className="px-2.5 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-[10px] font-bold">
-                          -{discountPercent}%
-                        </span>
-                      )}
-                    </div>
-
-                    <button
-                      onClick={() => toggleWishlist(product.id)}
-                      className={`p-2 rounded-full border transition shrink-0 ${
-                        isWishlisted
-                          ? "bg-rose-500/20 border-rose-500/50 text-rose-400"
-                          : "bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-white"
-                      }`}
-                      title="Ajouter aux favoris"
-                    >
-                      <Heart className={`w-4 h-4 ${isWishlisted ? "fill-rose-400" : ""}`} />
-                    </button>
-                  </div>
-
-                  {/* Clickable Real Bottle Photograph Pedestal */}
-                  <div
-                    onClick={() => {
-                      setQuickViewProduct(product);
-                      setQuickViewQty(1);
-                    }}
-                    className="cursor-pointer mb-3 relative"
-                  >
-                    <PerfumePhotoShowcase
-                      product={product}
-                      size="md"
-                      studioTheme={studioTheme}
-                      customImageUrl={customImages[product.id]}
-                    />
-                    <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <span className="px-3 py-1 rounded-full bg-zinc-950/90 text-amber-300 text-[10px] font-semibold flex items-center gap-1 shadow-lg border border-amber-500/30 whitespace-nowrap">
-                        <Eye className="w-3 h-3" /> Pyramide olfactive
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Product Details */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-[11px] text-zinc-400">
-                      <span className="uppercase tracking-wider font-semibold text-amber-400">
-                        {product.brand}
-                      </span>
-                      <span>
-                        {product.gender} • {product.volume}
-                      </span>
-                    </div>
-
-                    <h3
-                      onClick={() => {
-                        setQuickViewProduct(product);
-                        setQuickViewQty(1);
-                      }}
-                      className="font-serif font-bold text-base text-white group-hover:text-amber-300 transition cursor-pointer line-clamp-1"
-                    >
-                      {product.name}
-                    </h3>
-
-                    <p className="text-xs text-zinc-400 line-clamp-1">{product.inspiration}</p>
-
-                    <div className="flex items-center justify-between pt-1 text-xs">
-                      <div className="flex items-center gap-1 text-amber-400">
-                        <Star className="w-3.5 h-3.5 fill-amber-400" />
-                        <span className="font-bold text-white">{product.rating}</span>
-                        <span className="text-zinc-500">({product.reviews})</span>
-                      </div>
-                      <span className="text-[11px] text-emerald-400 font-medium">
-                        ● En stock
-                      </span>
-                    </div>
-
-                    {/* Price & Action Buttons */}
-                    <div className="pt-3 mt-2 border-t border-zinc-800/80 flex items-center justify-between gap-2">
-                      <div>
-                        {product.oldPrice && (
-                          <span className="block text-[11px] text-zinc-500 line-through">
-                            {product.oldPrice.toFixed(0)} DT
-                          </span>
-                        )}
-                        <span className="text-lg font-extrabold text-amber-400">
-                          {product.price.toFixed(0)} <span className="text-xs font-semibold">DT</span>
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-1.5">
-                        <button
-                          onClick={() => {
-                            setQuickViewProduct(product);
-                            setQuickViewQty(1);
-                          }}
-                          className="px-2.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium transition"
-                        >
-                          Détails
-                        </button>
-                        <button
-                          onClick={() => addToCart(product, 1)}
-                          className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-bold text-xs transition flex items-center gap-1 shadow-md shadow-amber-500/10"
-                        >
-                          <Plus className="w-3.5 h-3.5" />
-                          Panier
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-      </section>
-
-      {/* 6. WHY CHOOSE ALADIN PARFUMS */}
-      <section className="py-12 bg-zinc-900/40 border-y border-zinc-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shrink-0">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Authenticité Garantie par Aladin
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Parfums 100% originaux sous blister avec code-barres et hologramme officiel des maisons Lattafa, Afnan et French Avenue.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shrink-0">
-                <Truck className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Livraison Rapide 24h–48h
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Expédition express sur les 24 gouvernorats de Tunisie. Tarif fixe de 8 DT et gratuite dès 250 DT.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shrink-0">
-                <MessageCircle className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Confirmation WhatsApp & Alerte Directe
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Dès votre commande validée, Aladin reçoit instantanément votre fiche de livraison sur WhatsApp ({STORE_PHONE_DISPLAY}) et par notification.
-                </p>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-zinc-800/80 flex items-start gap-4">
-              <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shrink-0">
-                <Award className="w-6 h-6" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-white text-sm mb-1">
-                  Paiement à la Livraison
-                </h4>
-                <p className="text-xs text-zinc-400 leading-relaxed">
-                  Aucune carte bancaire requise. Payez en espèces directement au livreur lors de la réception de votre parfum.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. FAQ SECTION */}
-      <section className="py-12 max-w-4xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8">
-          <span className="text-xs uppercase tracking-[0.2em] text-amber-400 font-semibold">
-            Questions Fréquentes
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-white mt-1">
-            Tout savoir sur vos commandes chez Aladin Parfums
-          </h2>
-        </div>
-
-        <div className="space-y-3">
-          {FAQ_ITEMS.map((item, i) => {
-            const isOpen = openFaqIndex === i;
-            return (
-              <div
-                key={i}
-                className="rounded-2xl bg-zinc-900/70 border border-zinc-800 overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaqIndex(isOpen ? -1 : i)}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 hover:bg-zinc-900 transition"
-                >
-                  <span className="font-semibold text-sm sm:text-base text-white flex items-center gap-2.5">
-                    <HelpCircle className="w-4 h-4 text-amber-400 shrink-0" />
-                    {item.q}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-amber-400 transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-4 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-zinc-800/60">
-                    {item.a}
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* 8. FOOTER WITH ALADIN CREST */}
-      <footer className="bg-zinc-950 border-t border-zinc-800/80 text-zinc-400 text-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <AladinRoyalCrest size="sm" />
-              <div>
-                <span className="block text-base font-serif font-bold text-amber-400 tracking-wider">
-                  ALADIN
-                </span>
-                <span className="block text-[10px] uppercase tracking-widest text-zinc-400">
-                  Parfums de Luxe • L'Élixir d'Orient
-                </span>
-              </div>
-            </div>
-            <p className="text-zinc-400 leading-relaxed">
-              Votre destination N°1 en Tunisie pour les parfums orientaux et de niche : Lattafa, Afnan, Zimaya, French Avenue, Armaf et Maison Alhambra.
-            </p>
-            <div className="pt-1 text-amber-400 font-semibold">
-              📞 Aladin Direct & WhatsApp : {STORE_PHONE_DISPLAY}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3">
-              Service Client
-            </h4>
-            <ul className="space-y-2">
-              <li>
-                <button
-                  onClick={() => {
-                    setSelectedCategory("Best-Sellers");
-                    scrollToCatalog();
-                  }}
-                  className="hover:text-amber-400 transition"
-                >
-                  Nos Best-Sellers
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => {
-                    setSelectedCategory("Nouveautés");
-                    scrollToCatalog();
-                  }}
-                  className="hover:text-amber-400 transition"
-                >
-                  Nouveautés 2026
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => setIsWholesaleModalOpen(true)}
-                  className="hover:text-amber-400 transition"
-                >
-                  Espace Revendeurs / Vente en Gros
-                </button>
-              </li>
-              <li>
-                <a
-                  href={`https://wa.me/${STORE_WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-amber-400 transition flex items-center gap-1"
-                >
-                  Assistance WhatsApp Directe
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white uppercase tracking-wider mb-3">
-              Livraison en Tunisie
-            </h4>
-            <p className="leading-relaxed mb-3">
-              Livraison rapide à domicile dans les 24 gouvernorats (Grand Tunis, Sousse, Sfax, Nabeul, Monastir, Bizerte...).
-            </p>
-            <div className="p-3 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-300">
-              <div>• Frais de livraison fixes : <strong className="text-amber-400">8.000 DT</strong></div>
-              <div>• Livraison gratuite dès <strong className="text-amber-400">250 DT</strong></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-zinc-900 py-4 px-4 sm:px-6">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-zinc-500">
-            <span>
-              © 2026 ALADIN — Parfums de Luxe (L'Élixir d'Orient Tunisie). Tous droits réservés.
-            </span>
-            <button
-              onClick={() => {
-                setAdminTab("notifications");
-                setIsAdminModalOpen(true);
-              }}
-              className="text-[11px] text-zinc-600 hover:text-zinc-400 transition flex items-center gap-1"
-              title="Accès Gérant"
-            >
-              <Settings className="w-3 h-3" />
-              Accès Gérant {savedOrders.length > 0 ? `(${savedOrders.length})` : ""}
-            </button>
-          </div>
-        </div>
-      </footer>
-
-      {/* --- PRODUCT QUICK-VIEW & OLFACTORY PYRAMID MODAL --- */}
-      {quickViewProduct && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl my-8">
-            <button
-              onClick={() => setQuickViewProduct(null)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <PerfumePhotoShowcase
-                  product={quickViewProduct}
-                  size="lg"
-                  studioTheme={studioTheme}
-                  customImageUrl={customImages[quickViewProduct.id]}
-                />
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                    {quickViewProduct.brand} • {quickViewProduct.concentration}
-                  </span>
-                  <h3 className="text-2xl font-serif font-bold text-white mt-0.5">
-                    {quickViewProduct.name}
-                  </h3>
-                  <p className="text-xs text-zinc-400 mt-1">{quickViewProduct.inspiration}</p>
-                </div>
-
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  {quickViewProduct.description}
-                </p>
-
-                {/* Olfactory Pyramid Breakdown */}
-                <div className="space-y-2 text-xs bg-zinc-900/70 border border-zinc-800 rounded-2xl p-3.5">
-                  <div className="text-amber-400 font-bold uppercase tracking-wider text-[10px] mb-1">
-                    Pyramide Olfactive
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Tête :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.topNotes.join(", ")}</span>
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Cœur :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.heartNotes.join(", ")}</span>
-                  </div>
-                  <div>
-                    <strong className="text-zinc-300">Notes de Fond :</strong>{" "}
-                    <span className="text-zinc-400">{quickViewProduct.baseNotes.join(", ")}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <div>
-                    {quickViewProduct.oldPrice && (
-                      <span className="text-xs text-zinc-500 line-through mr-2">
-                        {quickViewProduct.oldPrice} DT
-                      </span>
-                    )}
-                    <span className="text-2xl font-bold text-amber-400">
-                      {quickViewProduct.price} DT
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-1.5">
-                    <button
-                      onClick={() => setQuickViewQty(Math.max(1, quickViewQty - 1))}
-                      className="text-zinc-400 hover:text-white"
-                    >
-                      <Minus className="w-4 h-4" />
-                    </button>
-                    <span className="text-sm font-bold px-2">{quickViewQty}</span>
-                    <button
-                      onClick={() => setQuickViewQty(Math.min(10, quickViewQty + 1))}
-                      className="text-zinc-400 hover:text-white"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3 pt-2">
-                  <button
-                    onClick={() => {
-                      addToCart(quickViewProduct, quickViewQty);
-                      setQuickViewProduct(null);
-                      setIsCartOpen(true);
-                    }}
-                    className="py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-amber-500/40 text-amber-300 font-bold text-xs flex items-center justify-center gap-1.5 transition"
-                  >
-                    <ShoppingBag className="w-4 h-4" /> Ajouter au panier
-                  </button>
-                  <button
-                    onClick={() => handleDirectOrder(quickViewProduct, quickViewQty)}
-                    className="py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:brightness-110 text-zinc-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 transition"
-                  >
-                    <MessageCircle className="w-4 h-4" /> Commander Direct
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* --- SLIDING WISHLIST DRAWER --- */}
-      {isWishlistOpen && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex justify-end">
-          <div className="bg-zinc-950 border-l border-zinc-800 w-full max-w-md h-full flex flex-col justify-between p-6 shadow-2xl">
-            <div className="flex-1 flex flex-col min-h-0">
-              <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-                <div className="flex items-center gap-2.5">
-                  <Heart className="w-5 h-5 text-amber-400" />
-                  <h3 className="font-serif font-bold text-lg text-white">
-                    Mes Parfums Favoris {wishlist.length > 0 && `(${wishlist.length})`}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setIsWishlistOpen(false)}
-                  className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {wishlist.length === 0 ? (
-                <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-10">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-500/15 to-amber-900/10 border border-amber-500/30 flex items-center justify-center mb-4 shadow-inner">
-                    <Heart className="w-9 h-9 text-amber-400/80 stroke-[1.5]" />
-                  </div>
-                  <h4 className="font-serif font-bold text-lg text-white mb-1.5">
-                    Votre liste de favoris est vide
-                  </h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">
-                    Cliquez sur le cœur en haut des flacons pour sauvegarder vos élixirs préférés (Lattafa, French Avenue, Afnan, Zimaya...).
-                  </p>
-                  <button
-                    onClick={() => {
-                      setIsWishlistOpen(false);
-                      setSelectedCategory("Best-Sellers");
-                      scrollToCatalog();
-                    }}
-                    className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-xs hover:brightness-110 transition shadow-lg shadow-amber-500/20 flex items-center gap-2"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    Découvrir nos Best-Sellers
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-3 overflow-y-auto pr-1 my-4 flex-1">
-                  {PERFUMES_DATA.filter((p) => wishlist.includes(p.id)).map((product) => (
-                    <div
-                      key={product.id}
-                      className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 transition"
-                    >
-                      <div
-                        onClick={() => {
-                          setIsWishlistOpen(false);
-                          setQuickViewProduct(product);
-                          setQuickViewQty(1);
-                        }}
-                        className="flex items-center gap-3 cursor-pointer flex-1 min-w-0"
-                      >
-                        <div className="shrink-0">
-                          <PerfumePhotoShowcase
-                            product={product}
-                            size="sm"
-                            studioTheme={studioTheme}
-                            customImageUrl={customImages[product.id]}
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-[10px] text-amber-400 font-bold uppercase">
-                            {product.brand}
-                          </div>
-                          <div className="text-sm font-bold text-white truncate">
-                            {product.name}
-                          </div>
-                          <div className="text-xs text-amber-300 font-semibold">
-                            {product.price} DT
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <button
-                          onClick={() => {
-                            addToCart(product, 1);
-                            setIsWishlistOpen(false);
-                            setIsCartOpen(true);
-                          }}
-                          className="px-3 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-xs transition flex items-center gap-1"
-                        >
-                          <Plus className="w-3.5 h-3.5" /> Panier
-                        </button>
-                        <button
-                          onClick={() => toggleWishlist(product.id)}
-                          className="p-2 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-rose-400 transition"
-                          title="Retirer des favoris"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {wishlist.length > 0 && (
-              <div className="pt-4 border-t border-zinc-800">
-                <button
-                  onClick={() => {
-                    PERFUMES_DATA.filter((p) => wishlist.includes(p.id)).forEach((prod) =>
-                      addToCart(prod, 1)
-                    );
-                    setIsWishlistOpen(false);
-                    setIsCartOpen(true);
-                  }}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-xs hover:brightness-110 transition shadow-lg shadow-amber-500/20"
-                >
-                  Tout ajouter au panier ({wishlist.length})
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* --- SLIDING CART DRAWER --- */}
-      {isCartOpen && (
-        <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex justify-end">
-          <div className="bg-zinc-950 border-l border-zinc-800 w-full max-w-md h-full flex flex-col justify-between p-6 shadow-2xl">
-            <div className="flex-1 flex flex-col min-h-0">
-              <div className="flex items-center justify-between pb-4 border-b border-zinc-800">
-                <div className="flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5 text-amber-400" />
-                  <h3 className="font-serif font-bold text-lg text-white">
-                    Votre Panier {cartTotalItems > 0 && `(${cartTotalItems})`}
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setIsCartOpen(false)}
-                  className="p-1.5 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {cart.length > 0 && (
-                {/* Free Shipping Progress Bar */}
-                <div className="my-4 p-3 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs">
-                  {cartSubtotal >= freeShippingThreshold ? (
-                    <div className="text-emerald-400 font-semibold flex items-center gap-1.5">
-                      <CheckCircle2 className="w-4 h-4" />
-                      Félicitations ! Vous bénéficiez de la LIVRAISON GRATUITE.
-                    </div>
-                  ) : (
-                    <div>
-                      <div className="flex justify-between text-zinc-300 mb-1.5">
-                        <span>
-                          Plus que{" "}
-                          <strong className="text-amber-400">
-                            {(freeShippingThreshold - cartSubtotal).toFixed(0)} DT
-                          </strong>{" "}
-                          pour la livraison gratuite !
-                        </span>
-                        <span>{Math.round((cartSubtotal / freeShippingThreshold) * 100)}%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-amber-400 transition-all"
-                          style={{
-                            width: `${Math.min(100, (cartSubtotal / freeShippingThreshold) * 100)}%`
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Cart Items List or Luxury Empty State */}
-              {cart.length === 0 ? (
-                <div className="flex-1 flex flex-col items-center justify-center text-center px-4 py-10">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-amber-500/15 via-zinc-900 to-amber-900/15 border border-amber-500/30 flex items-center justify-center mb-5 shadow-inner">
-                    <svg
-                      viewBox="0 0 64 64"
-                      className="w-12 h-12"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect
-                        x="25"
-                        y="8"
-                        width="14"
-                        height="6"
-                        rx="1.5"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                      />
-                      <rect
-                        x="28"
-                        y="14"
-                        width="8"
-                        height="5"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                      />
-                      <path
-                        d="M16 27C16 22.5817 19.5817 19 24 19H40C44.4183 19 48 22.5817 48 27V49C48 52.866 44.866 56 41 56H23C19.134 56 16 52.866 16 49V27Z"
-                        stroke="#FBBF24"
-                        strokeWidth="2"
-                        fill="rgba(212,175,55,0.08)"
-                      />
-                      <rect
-                        x="22"
-                        y="30"
-                        width="20"
-                        height="14"
-                        rx="2"
-                        stroke="#FBBF24"
-                        strokeWidth="1.5"
-                      />
-                    </svg>
-                  </div>
-                  <h4 className="font-serif font-bold text-xl text-white mb-2">
-                    Votre panier est vide
-                  </h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed max-w-xs mb-6">
-                    Explorez la collection <strong className="text-amber-300">ALADIN Parfums</strong> et laissez-vous séduire par nos fragrances orientales authentiques livrées chez vous en 24h/48h.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setIsCartOpen(false);
-                      setSelectedCategory("Best-Sellers");
-                      scrollToCatalog();
-                    }}
-                    className="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-xs hover:brightness-110 transition shadow-lg shadow-amber-500/20 flex items-center gap-2"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                    Découvrir nos Best-Sellers
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-3 overflow-y-auto pr-1 flex-1">
-                  {cart.map((item) => (
-                    <div
-                      key={item.product.id}
-                      className="flex items-center justify-between gap-3 p-3 rounded-xl bg-zinc-900/60 border border-zinc-800"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="shrink-0">
-                          <PerfumePhotoShowcase
-                            product={item.product}
-                            size="sm"
-                            studioTheme={studioTheme}
-                            customImageUrl={customImages[item.product.id]}
-                          />
-                        </div>
-                        <div>
-                          <div className="text-[10px] text-amber-400 font-bold uppercase">
-                            {item.product.brand}
-                          </div>
-                          <div className="text-sm font-bold text-white">{item.product.name}</div>
-                          <div className="text-xs text-zinc-400">
-                            {item.product.price} DT × {item.quantity}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-1.5 bg-zinc-950 border border-zinc-800 rounded-lg px-2 py-1">
-                        <button
-                          onClick={() => updateCartQty(item.product.id, -1)}
-                          className="text-zinc-400 hover:text-white p-0.5"
-                        >
-                          <Minus className="w-3.5 h-3.5" />
-                        </button>
-                        <span className="text-xs font-bold px-1.5">{item.quantity}</span>
-                        <button
-                          onClick={() => updateCartQty(item.product.id, 1)}
-                          className="text-zinc-400 hover:text-white p-0.5"
-                        >
-                          <Plus className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {cart.length > 0 && (
-              <div className="pt-4 border-t border-zinc-800 space-y-3">
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex justify-between text-zinc-400">
-                    <span>Sous-total</span>
-                    <span>{cartSubtotal.toFixed(3)} DT</span>
-                  </div>
-                  <div className="flex justify-between text-zinc-400">
-                    <span>Frais de livraison (Tunisie 24/48h)</span>
-                    <span>
-                      {shippingFee === 0 ? (
-                        <strong className="text-emerald-400">GRATUITE</strong>
-                      ) : (
-                        `${shippingFee.toFixed(3)} DT`
-                      )}
-                    </span>
-                  </div>
-                  <div className="flex justify-between text-base font-bold text-white pt-2 border-t border-zinc-800">
-                    <span>Total à payer à la livraison</span>
-                    <span className="text-amber-400">{cartTotal.toFixed(3)} DT</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => {
-                    setIsCartOpen(false);
-                    setIsCheckoutOpen(true);
-                  }}
-                  className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-zinc-950 font-bold text-sm hover:brightness-110 transition shadow-lg shadow-amber-500/20"
-                >
-                  Commander • Paiement à la livraison
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* --- TUNISIAN COD CHECKOUT MODAL --- */}
-      {isCheckoutOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-8">
-            <button
-              onClick={() => setIsCheckoutOpen(false)}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-3 mb-4">
-              <AladinRoyalCrest size="sm" />
-              <div>
-                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                  ALADIN PARFUMS • COMMANDE EXPRESS
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  Finaliser votre commande
-                </h3>
-              </div>
-            </div>
-
-            {formError && (
-              <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs">
-                {formError}
-              </div>
-            )}
-
-            <form onSubmit={handleCheckoutSubmit} className="space-y-3.5 text-xs sm:text-sm">
-              <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Nom & Prénom complet *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ex: Amine Ben Salem"
-                  value={checkoutForm.fullName}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, fullName: e.target.value })
-                  }
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-zinc-300 font-medium mb-1">
-                    Téléphone (8 chiffres) *
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="Ex: 94318153"
-                    value={checkoutForm.phone}
-                    onChange={(e) =>
-                      setCheckoutForm({ ...checkoutForm, phone: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 font-medium mb-1">
-                    Gouvernorat *
-                  </label>
-                  <select
-                    value={checkoutForm.governorate}
-                    onChange={(e) =>
-                      setCheckoutForm({ ...checkoutForm, governorate: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
-                  >
-                    {TUNISIAN_GOVERNORATES.map((gov) => (
-                      <option key={gov} value={gov}>
-                        {gov}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Adresse exacte de livraison (Rue, Ville, Code postal) *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Ex: Avenue Habib Bourguiba, Ennasr 2, Ariana"
-                  value={checkoutForm.address}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, address: e.target.value })
-                  }
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-amber-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-zinc-300 font-medium mb-1">
-                  Note pour le livreur (Optionnel)
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ex: Appelez-moi 30 min avant l'arrivée"
-                  value={checkoutForm.notes}
-                  onChange={(e) =>
-                    setCheckoutForm({ ...checkoutForm, notes: e.target.value })
-                  }
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2 text-white focus:outline-none focus:border-amber-500"
-                />
-              </div>
-
-              <div className="p-4 rounded-2xl bg-zinc-900/90 border border-zinc-800 space-y-1.5 text-xs">
-                <div className="flex justify-between text-zinc-400">
-                  <span>Articles ({cartTotalItems})</span>
-                  <span>{cartSubtotal.toFixed(3)} DT</span>
-                </div>
-                <div className="flex justify-between text-zinc-400">
-                  <span>Livraison Rapide ({checkoutForm.governorate})</span>
-                  <span>{shippingFee === 0 ? "GRATUITE" : `${shippingFee.toFixed(3)} DT`}</span>
-                </div>
-                <div className="flex justify-between text-sm font-bold text-amber-400 pt-2 border-t border-zinc-800">
-                  <span>Total à payer à la livraison :</span>
-                  <span>{cartTotal.toFixed(3)} DT</span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmittingOrder}
-                className="w-full py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 text-white font-bold text-sm hover:brightness-110 transition shadow-xl flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-5 h-5" />
-                {isSubmittingOrder
-                  ? "Envoi de la notification à Aladin..."
-                  : `Confirmer & Envoyer la Commande (${cartTotal.toFixed(0)} DT)`}
-              </button>
-              <p className="text-[11px] text-center text-zinc-400">
-                En cliquant, Aladin reçoit une alerte immédiate + votre bon de commande WhatsApp sur le{" "}
-                <strong className="text-amber-300">{STORE_PHONE_DISPLAY}</strong>.
-              </p>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* --- ORDER CONFIRMATION MODAL --- */}
-      {orderSuccessData && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border border-amber-500/50 rounded-3xl max-w-md w-full p-6 sm:p-7 text-center space-y-4 shadow-2xl my-8">
-            <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-2xl font-serif font-bold text-white">
-              Commande {orderSuccessData.ref} Enregistrée !
-            </h3>
-            <p className="text-xs text-zinc-300 leading-relaxed">
-              Merci <strong className="text-white">{orderSuccessData.customer.fullName}</strong> !
-              Votre commande a été transmise à <strong className="text-amber-400">Aladin Parfums</strong>.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-1.5">
-              {orderSuccessData.notifiedChannels?.map((ch) => (
-                <span
-                  key={ch}
-                  className="px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[11px] font-semibold flex items-center gap-1"
-                >
-                  <Check className="w-3 h-3" /> Notifié via {ch}
-                </span>
-              ))}
-            </div>
-
-            <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 space-y-2.5">
-              <p className="text-xs text-emerald-200 font-medium">
-                📲 Cliquez ci-dessous pour envoyer/confirmer votre ticket directement sur le WhatsApp d'Aladin ({STORE_PHONE_DISPLAY}) :
-              </p>
-              <a
-                href={orderSuccessData.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Envoyer le Reçu sur WhatsApp ({STORE_PHONE_DISPLAY})
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
-
-              <button
-                onClick={() => {
-                  navigator.clipboard?.writeText(orderSuccessData.receiptText || "");
-                  setCopiedReceipt(true);
-                  setTimeout(() => setCopiedReceipt(false), 2500);
-                }}
-                className="w-full py-2 px-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 text-xs flex items-center justify-center gap-1.5 transition"
-              >
-                {copiedReceipt ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" /> Reçu copié dans le presse-papiers !
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-amber-400" /> Copier le texte de la commande
-                  </>
-                )}
-              </button>
-            </div>
-
-            <button
-              onClick={() => setOrderSuccessData(null)}
-              className="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold text-xs"
-            >
-              Retour à la boutique Aladin
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* --- ADMIN HUB MODAL --- */}
-      {isAdminModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-3xl w-full p-6 sm:p-8 relative shadow-2xl my-8 max-h-[90vh] overflow-y-auto">
-            <button
-              onClick={() => {
-                setIsAdminModalOpen(false);
-                setTestAlertStatus(null);
-              }}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <div className="flex items-center gap-3 mb-5">
-              <AladinRoyalCrest size="sm" />
-              <div>
-                <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">
-                  ESPACE PROPRIÉTAIRE • ALADIN PARFUMS
-                </span>
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
-                  Centre d'Alertes & Gestion des Commandes
-                </h3>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 border-b border-zinc-800 pb-4 mb-6">
-              <button
-                onClick={() => setAdminTab("notifications")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "notifications"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <Bell className="w-4 h-4" />
-                1. Configurer Notifications
-              </button>
-              <button
-                onClick={() => setAdminTab("orders")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "orders"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <ClipboardList className="w-4 h-4" />
-                2. Commandes Reçues ({savedOrders.length})
-              </button>
-              <button
-                onClick={() => setAdminTab("photos")}
-                className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition ${
-                  adminTab === "photos"
-                    ? "bg-amber-500 text-zinc-950"
-                    : "bg-zinc-900 text-zinc-300 hover:bg-zinc-800"
-                }`}
-              >
-                <Camera className="w-4 h-4" />
-                3. Studio Photos
-              </button>
-            </div>
-
-            {adminTab === "notifications" && (
-              <div className="space-y-6 text-xs">
-                {testAlertStatus && (
-                  <div className="p-3.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-amber-200 font-medium flex items-center justify-between">
-                    <span>{testAlertStatus}</span>
-                    <button onClick={() => setTestAlertStatus(null)}>
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                )}
-
-                <div className="p-5 rounded-2xl bg-zinc-900/80 border border-emerald-500/30 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
-                        <MessageCircle className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-                          OPTION 1 • ACTIVE PAR DÉFAUT
-                        </span>
-                        <h4 className="text-sm font-bold text-white">
-                          Redirection WhatsApp (+216 94 318 153)
-                        </h4>
-                      </div>
-                    </div>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleSendTestNotification("whatsapp")}
-                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center gap-1.5 transition"
-                  >
-                    <Send className="w-3.5 h-3.5" /> Tester WhatsApp
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {adminTab === "orders" && (
-              <div className="space-y-4 text-xs">
-                {savedOrders.length === 0 ? (
-                  <div className="text-center py-12 bg-zinc-900/50 rounded-2xl border border-zinc-800 text-zinc-400">
-                    Aucune commande enregistrée pour le moment.
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    {savedOrders.map((ord) => (
-                      <div key={ord.ref} className="p-4 rounded-2xl bg-zinc-900/80 border border-zinc-800 space-y-2">
-                        <div className="flex justify-between font-bold text-amber-400">
-                          <span>{ord.ref}</span>
-                          <span>{ord.total.toFixed(3)} DT</span>
-                        </div>
-                        <div className="text-zinc-300">
-                          <strong>Client :</strong> {ord.customer.fullName} ({ord.customer.phone}) - {ord.customer.governorate}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-
-            {adminTab === "photos" && (
-              <div className="space-y-4 text-xs">
-                {(() => {
-                  const targetProd =
-                    PERFUMES_DATA.find((p) => p.id === Number(selectedProductForPhoto)) ||
-                    PERFUMES_DATA[0];
-
-                  return (
-                    <>
-                      <div>
-                        <label className="block text-zinc-300 font-medium mb-1.5">
-                          Sélectionner le parfum à personnaliser :
-                        </label>
-                        <select
-                          value={selectedProductForPhoto}
-                          onChange={(e) => setSelectedProductForPhoto(Number(e.target.value))}
-                          className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                        >
-                          {PERFUMES_DATA.map((p) => (
-                            <option key={p.id} value={p.id}>
-                              {p.brand} — {p.name} ({p.price} DT)
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center bg-zinc-900/60 border border-zinc-800 rounded-2xl p-4">
-                        <PerfumePhotoShowcase
-                          product={targetProd}
-                          size="md"
-                          studioTheme={studioTheme}
-                          customImageUrl={customImages[targetProd.id]}
-                        />
-
-                        <div className="space-y-3">
-                          <label className="cursor-pointer w-full py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-medium flex items-center justify-center gap-2 border border-zinc-700 transition">
-                            <Upload className="w-4 h-4 text-amber-400" />
-                            Importer une photo (PC/Mobile)
-                            <input
-                              type="file"
-                              accept="image/*"
-                              onChange={handleLocalFileUpload}
-                              className="hidden"
-                            />
-                          </label>
-
-                          {customImages[targetProd.id] && (
-                            <button
-                              type="button"
-                              onClick={() => resetCustomPhoto(targetProd.id)}
-                              className="w-full py-2 px-3 rounded-xl bg-rose-500/15 text-rose-300 border border-rose-500/30 font-medium flex items-center justify-center gap-1.5"
-                            >
-                              <RotateCcw className="w-3.5 h-3.5" /> Restaurer photo officielle
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    </>
-                  );
-                })()}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
-      {/* --- WHOLESALE MODAL --- */}
-      {isWholesaleModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-zinc-950 border border-amber-500/40 rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
-            <button
-              onClick={() => {
-                setIsWholesaleModalOpen(false);
-                setWholesaleSent(false);
-              }}
-              className="absolute top-5 right-5 p-2 rounded-full bg-zinc-900 text-zinc-400 hover:text-white"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {wholesaleSent ? (
-              <div className="text-center space-y-4 py-4">
-                <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto" />
-                <h3 className="text-xl font-serif font-bold text-white">
-                  Demande Revendeur Envoyée à Aladin !
-                </h3>
-                <button
-                  onClick={() => {
-                    setIsWholesaleModalOpen(false);
-                    setWholesaleSent(false);
-                  }}
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 text-zinc-950 font-bold text-xs"
-                >
-                  Fermer
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const msg = `Bonjour Aladin Parfums ! Demande de tarif en GROS :\n• Boutique : ${wholesaleForm.shopName}\n• Tél : ${wholesaleForm.phone}\n• Quantité : ${wholesaleForm.estimatedQuantity}`;
-                  window.open(
-                    `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`,
-                    "_blank",
-                    "noopener,noreferrer"
-                  );
-                  setWholesaleSent(true);
-                }}
-                className="space-y-4 text-xs"
-              >
-                <div>
-                  <span className="text-amber-400 font-bold uppercase tracking-wider">
-                    Espace Professionnel B2B • Aladin Parfums
-                  </span>
-                  <h3 className="text-xl font-serif font-bold text-white mt-1">
-                    Commande en Gros / Revendeurs
-                  </h3>
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Nom de la boutique ou société *</label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Ex: Parfumerie Prestige Sousse"
-                    value={wholesaleForm.shopName}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, shopName: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Téléphone / WhatsApp *</label>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="Ex: 94 318 153"
-                    value={wholesaleForm.phone}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, phone: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-zinc-300 mb-1">Quantité estimée</label>
-                  <select
-                    value={wholesaleForm.estimatedQuantity}
-                    onChange={(e) =>
-                      setWholesaleForm({ ...wholesaleForm, estimatedQuantity: e.target.value })
-                    }
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-white"
-                  >
-                    <option>12 - 30 pièces</option>
-                    <option>30 - 100 pièces</option>
-                    <option>+100 pièces (Distributeur)</option>
-                  </select>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-3 rounded-xl bg-amber-500 text-zinc-950 font-bold text-xs"
-                >
-                  Envoyer ma demande Grossiste sur WhatsApp
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}

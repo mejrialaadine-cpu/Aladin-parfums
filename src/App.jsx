@@ -976,17 +976,17 @@ export default function App() {
     return channelsSent;
   };
 
-  const handleCheckoutSubmit = async (e) => {
+const handleCheckoutSubmit = async (e) => {
     e.preventDefault();
     setFormError("");
 
-    const cleanPhone = checkoutForm.phone.replace(/\s+/g, "");
+    const cleanPhone = checkoutForm.phone.replace(/\D/g, "");
     if (!checkoutForm.fullName.trim()) {
       setFormError("Veuillez saisir votre Nom et Prénom.");
       return;
     }
-    // Updated condition to accept any 8 digits (so any Tunisian phone number works seamlessly)
-    if (!/^\d{8}\$/.test(cleanPhone)) {
+    // Validation assouplie : accepte n'importe quel numéro contenant 8 chiffres
+    if (cleanPhone.length !== 8) {
       setFormError("Veuillez saisir un numéro de téléphone valide à 8 chiffres.");
       return;
     }

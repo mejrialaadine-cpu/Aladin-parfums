@@ -94,6 +94,7 @@ const AladinRoyalCrest = ({ size = "md" }) => {
   );
 };
 
+// --- BRIGHT LUXURY STUDIO PEDESTAL (TRUE COLORS VISIBLE) ---
 const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', customImageUrl }) => {
   const [imgError, setImgError] = useState(false);
   const activeImage = customImageUrl || product.imageUrl;
@@ -101,29 +102,24 @@ const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', cus
   const containerClasses =
     size === 'lg' ? 'w-full h-72 sm:h-80 rounded-2xl p-6' : size === 'sm' ? 'w-14 h-16 rounded-xl p-1.5' : 'w-full h-60 rounded-2xl p-5';
   const imgClasses = size === 'lg' ? 'max-h-60 sm:max-h-64' : size === 'sm' ? 'max-h-12' : 'max-h-48';
+
+  // Using a clean, bright, luxurious ivory/white gradient box so bottles show their natural colors vividly
   const pedestalStyle =
-    studioTheme === 'ivory'
-      ? 'bg-gradient-to-b from-white via-[#FCFBF7] to-[#F2ECE1] border-amber-500/30 shadow-[inset_0_0_25px_rgba(212,175,55,0.12)]'
-      : studioTheme === 'pure'
-      ? 'bg-white border-zinc-200 shadow-inner'
-      : 'bg-gradient-to-b from-[#FAF8F5] via-[#F3EDE2] to-[#E6DEC8] border-amber-400/50 shadow-[0_0_30px_rgba(212,175,55,0.15)]';
+    'bg-gradient-to-b from-[#FFFFFF] via-[#FAF7F2] to-[#ECE5D8] border-amber-500/40 shadow-[inset_0_2px_15px_rgba(255,255,255,0.9),0_4px_20px_rgba(0,0,0,0.3)]';
 
   return (
     <div className={`relative flex flex-col items-center justify-center overflow-hidden border transition-all duration-500 select-none group ${containerClasses}${pedestalStyle}`}>
       <div
-        className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-24 rounded-full blur-2xl opacity-40 pointer-events-none transition-opacity duration-500 group-hover:opacity-75"
-        style={{ background: `radial-gradient(circle, \${product.accentColor || '#D4AF37'}, transparent 70%)` }}
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-28 rounded-full blur-xl opacity-60 pointer-events-none transition-opacity duration-500 group-hover:opacity-90"
+        style={{ background: `radial-gradient(circle, rgba(255,255,255,0.8), \${product.accentColor || '#D4AF37'}40 70%)` }}
       />
       {size !== 'sm' && (
         <>
-          <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-amber-600/40 pointer-events-none" />
-          <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-amber-600/40 pointer-events-none" />
-          <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-amber-600/40 pointer-events-none" />
-          <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-amber-600/40 pointer-events-none" />
+          <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t border-l border-amber-600/60 pointer-events-none" />
+          <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t border-r border-amber-600/60 pointer-events-none" />
+          <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b border-l border-amber-600/60 pointer-events-none" />
+          <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b border-r border-amber-600/60 pointer-events-none" />
         </>
-      )}
-      {size !== 'sm' && (
-        <div className="absolute bottom-3 w-2/3 h-3 rounded-full bg-amber-950/10 blur-md pointer-events-none group-hover:scale-110 transition-transform duration-500" />
       )}
       {!imgError && activeImage ? (
         <img
@@ -131,7 +127,7 @@ const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', cus
           alt={`${product.brand} -${product.name}`}
           onError={() => setImgError(true)}
           loading="lazy"
-          className={`\${imgClasses} w-auto object-contain mix-blend-multiply transition-transform duration-500 ease-out group-hover:scale-110 relative z-10`}
+          className={`\${imgClasses} w-auto object-contain drop-shadow-[0_10px_15px_rgba(0,0,0,0.35)] transition-transform duration-500 ease-out group-hover:scale-110 relative z-10`}
         />
       ) : (
         <div className="flex flex-col items-center justify-center text-center p-2 text-zinc-700">
@@ -141,7 +137,7 @@ const PerfumePhotoShowcase = ({ product, size = 'md', studioTheme = 'ivory', cus
         </div>
       )}
       {size === 'lg' && (
-        <div className="absolute bottom-2.5 right-3 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-950/85 text-amber-300 text-[10px] font-bold tracking-wider uppercase shadow">
+        <div className="absolute bottom-2.5 right-3 z-20 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-zinc-950/90 text-amber-300 text-[10px] font-bold tracking-wider uppercase shadow">
           <ShieldCheck className="w-3 h-3 text-amber-400" />
           Aladin Authentique
         </div>
